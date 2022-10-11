@@ -42,6 +42,10 @@ $dark: #1b1b1b;
     max-width: 80%;
     max-height: 250px;
     stroke: $green;
+    // background: white;
+    // border-radius: 50%;
+    // box-shadow: inset 0px 0px 0px 10px black;
+    z-index: 3;
   }
 
   &-circle {
@@ -49,12 +53,25 @@ $dark: #1b1b1b;
     stroke-width: 2.8;
     //   stroke-linecap: round;
     animation: progress 1s ease-out forwards;
+    z-index: 4;
   }
 
   &-circle-bg {
     fill: none;
     stroke: #d3d3d3;
     stroke-width: 0.4;
+    z-index: 1;
+  }
+
+  &-circle-bg-2 {
+    position: absolute;
+    width: 9.9rem;
+    height: 9.9rem;
+    top: 1rem;
+    left: 2.2rem;
+    background-color: white;
+    z-index: 0;
+    border-radius: 50%;
   }
 
   &-content {
@@ -67,6 +84,7 @@ $dark: #1b1b1b;
     grid-row: 1/2;
     justify-self: center;
     align-self: center;
+    z-index: 1;
   }
 
   &-crown {

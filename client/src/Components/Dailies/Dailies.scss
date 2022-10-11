@@ -21,6 +21,10 @@ $breakpoints: (
   }
 }
 
+$green: #cbf73f;
+$pink: #eb4abc;
+$dark: #1b1b1b;
+
 .dailies {
   display: grid;
   grid-template-rows: repeat(2, minmax(min-content, max-content));
@@ -44,6 +48,7 @@ $breakpoints: (
 
   &-app {
     display: grid;
+
     grid-template-rows: repeat(2, minmax(min-content, max-content));
     grid-template-columns: repeat(3, minmax(min-content, max-content));
     grid-gap: 1rem;
@@ -51,12 +56,28 @@ $breakpoints: (
 
     &s {
       display: grid;
+      position: relative;
       align-items: center;
       justify-items: center;
       width: 5.625rem;
       height: 3.75rem;
       border-radius: 0.5rem;
       background-color: white;
+    }
+
+    &-check {
+      display: none;
+      position: absolute;
+      right: 0.5rem;
+      top: 0.5rem;
+
+      &-training {
+        display: block;
+      }
+    }
+
+    &-training {
+      background-color: $green;
     }
   }
 }

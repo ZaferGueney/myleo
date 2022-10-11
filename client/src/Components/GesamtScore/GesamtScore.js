@@ -14,7 +14,7 @@ function GesamtScore() {
         />
         <path
           class="gesamtscore-circle"
-          stroke-dasharray="90, 100"
+          stroke-dasharray="93, 100"
           d="M18 2.0845
           a 15.9155 15.9155 0 0 1 0 31.831
           a 15.9155 15.9155 0 0 1 0 -31.831"
@@ -31,6 +31,8 @@ function GesamtScore() {
         <h3 className="gesamtscore-footer-title">GESAMTSCORE</h3>
         <p className="gesamtscore-footer-text">Mach weiter so!</p>
       </div>
+
+      <div className="gesamtscore-circle-bg-2"></div>
     </div>
   );
 }

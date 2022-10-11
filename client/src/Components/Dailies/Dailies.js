@@ -16,8 +16,10 @@ function Dailies() {
         <p className="dailies-tracking-text">LEFT TO TRACK YOUR</p>
         <p className="dailies-tracking-title">DAILIES</p>
       </div>
+
       <div className="dailies-app">
         <div className="dailies-apps dailies-app-nourish">
+          <img src={check} alt="" className="dailies-app-check" />
           <img
             src={nourish}
             alt=""
@@ -26,12 +28,18 @@ function Dailies() {
         </div>
         <div className="dailies-apps dailies-app-training">
           <img
+            src={check}
+            alt=""
+            className="dailies-app-check dailies-app-check-training"
+          />
+          <img
             src={training}
             alt=""
             className="dailies-app-icon dailies-app-icon-training"
           />
         </div>
         <div className="dailies-apps dailies-app-sleep">
+          <img src={check} alt="" className="dailies-app-check" />
           <img
             src={sleep}
             alt=""
@@ -39,6 +47,7 @@ function Dailies() {
           />
         </div>
         <div className="dailies-apps dailies-app-shower">
+          <img src={check} alt="" className="dailies-app-check" />
           <img
             src={shower}
             alt=""
@@ -46,6 +55,7 @@ function Dailies() {
           />
         </div>
         <div className="dailies-apps dailies-app-breath">
+          <img src={check} alt="" className="dailies-app-check  " />
           <img
             src={breath}
             alt=""
@@ -53,6 +63,7 @@ function Dailies() {
           />
         </div>
         <div className="dailies-apps dailies-app-gratitude">
+          <img src={check} alt="" className="dailies-app-check" />
           <img
             src={gratitude}
             alt=""
