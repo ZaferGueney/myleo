@@ -5,16 +5,16 @@ import crown from "./img/crown.svg";
 function Ranking() {
   return (
     <div className="ranking">
-      <svg viewBox="0 0 36 36" class="ranking-chart">
+      <svg viewBox="0 0 36 36" className="ranking-chart">
         <path
-          class="ranking-circle-bg"
+          className="ranking-circle-bg"
           d="M18 2.0845
           a 15.9155 15.9155 0 0 1 0 31.831
           a 15.9155 15.9155 0 0 1 0 -31.831"
         />
         <path
-          class="ranking-circle"
-          stroke-dasharray="45, 100"
+          className="ranking-circle"
+          strokeDasharray="45, 100"
           d="M18 2.0845
           a 15.9155 15.9155 0 0 1 0 31.831
           a 15.9155 15.9155 0 0 1 0 -31.831"
@@ -31,6 +31,7 @@ function Ranking() {
         <h3 className="ranking-footer-title">RANKING</h3>
         <p className="ranking-footer-text">17 Teilnehmer vor dir</p>
       </div>
+      <div className="ranking-circle-bg-2"></div>
     </div>
   );
 }

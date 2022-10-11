@@ -5,16 +5,16 @@ import crown from "./img/crown.svg";
 function GesamtScore() {
   return (
     <div className="gesamtscore">
-      <svg viewBox="0 0 36 36" class="gesamtscore-chart">
+      <svg viewBox="0 0 36 36" className="gesamtscore-chart">
         <path
-          class="gesamtscore-circle-bg"
+          className="gesamtscore-circle-bg"
           d="M18 2.0845
           a 15.9155 15.9155 0 0 1 0 31.831
           a 15.9155 15.9155 0 0 1 0 -31.831"
         />
         <path
-          class="gesamtscore-circle"
-          stroke-dasharray="93, 100"
+          className="gesamtscore-circle"
+          strokeDasharray="10, 100"
           d="M18 2.0845
           a 15.9155 15.9155 0 0 1 0 31.831
           a 15.9155 15.9155 0 0 1 0 -31.831"

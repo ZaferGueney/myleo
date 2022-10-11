@@ -1,0 +1,40 @@
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+}
+
+$breakpoints: (
+  small: 480px,
+  bloody: 650px,
+  midsmall: 800px,
+  welldone: 1000px,
+  medium: 1200px,
+  large: 1800px,
+);
+
+@mixin mq($key) {
+  $size: map-get($breakpoints, $key);
+  @media (min-width: $size) {
+    @content;
+  }
+}
+
+$green: #cbf73f;
+$pink: #eb4abc;
+$dark: #1b1b1b;
+$brown: #d3d3d3;
+
+.footer {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(min-content, max-content));
+  grid-gap: 1rem;
+  justify-content: center;
+  margin-top: 3.5rem;
+  margin-bottom: 1.5rem;
+  &-link {
+    color: #31302e;
+    font-size: 0.625rem;
+  }
+}

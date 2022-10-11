@@ -1,0 +1,63 @@
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+}
+
+$breakpoints: (
+  small: 480px,
+  bloody: 650px,
+  midsmall: 800px,
+  welldone: 1000px,
+  medium: 1200px,
+  large: 1800px,
+);
+
+@mixin mq($key) {
+  $size: map-get($breakpoints, $key);
+  @media (min-width: $size) {
+    @content;
+  }
+}
+
+$green: #cbf73f;
+$pink: #eb4abc;
+$dark: #1b1b1b;
+$brown: #d3d3d3;
+
+.footer-navigation {
+  height: 4rem;
+  background-color: $dark;
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  // justify-content: center;
+
+  color: white;
+  font-size: 0.7rem;
+
+  &-link {
+    // height: 100%;
+    display: grid;
+    grid-template-rows: repeat(2, 1fr);
+
+    &-image {
+      width: 1.7rem;
+      justify-self: center;
+      align-self: center;
+      margin-bottom: -0.8rem;
+
+      &-team {
+        width: 2.1rem;
+      }
+    }
+
+    &-title {
+      justify-self: center;
+      align-self: center;
+    }
+  }
+}

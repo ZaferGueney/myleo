@@ -1,0 +1,83 @@
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+}
+
+$breakpoints: (
+  small: 480px,
+  bloody: 650px,
+  midsmall: 800px,
+  welldone: 1000px,
+  medium: 1200px,
+  large: 1800px,
+);
+
+@mixin mq($key) {
+  $size: map-get($breakpoints, $key);
+  @media (min-width: $size) {
+    @content;
+  }
+}
+
+$green: #cbf73f;
+$pink: #eb4abc;
+$dark: #1b1b1b;
+$brown: #d3d3d3;
+
+.gratitudelog {
+  display: grid;
+
+  &-header {
+    display: grid;
+    justify-content: center;
+    justify-items: center;
+
+    &-image {
+      width: 2.8rem;
+    }
+
+    &-title {
+      font-weight: 800;
+    }
+  }
+
+  &-log {
+    display: grid;
+    margin-top: 1rem;
+
+    &-single {
+      display: grid;
+      grid-template-columns: 0.1fr 0.9fr;
+      padding: 1rem;
+      align-items: center;
+      border-bottom: 1px solid $brown;
+
+      &-text {
+        grid-row: 2/3;
+        grid-column: 1/3;
+        padding-top: 0.3rem;
+        font-size: 0.8rem;
+      }
+
+      &-title {
+        font-weight: 800;
+        font-size: 0.8rem;
+      }
+    }
+
+    &-single:first-of-type {
+      border-top: 1px solid $brown;
+    }
+  }
+
+  &-button {
+    background: none;
+    border: none;
+    margin-top: 1rem;
+    color: $pink;
+    font-weight: 800;
+    font-size: 0.9rem;
+  }
+}

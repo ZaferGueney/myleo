@@ -1,0 +1,115 @@
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+}
+
+$breakpoints: (
+  small: 480px,
+  bloody: 650px,
+  midsmall: 800px,
+  welldone: 1000px,
+  medium: 1200px,
+  large: 1800px,
+);
+
+@mixin mq($key) {
+  $size: map-get($breakpoints, $key);
+  @media (min-width: $size) {
+    @content;
+  }
+}
+
+$green: #cbf73f;
+$pink: #eb4abc;
+$dark: #1b1b1b;
+
+.weeklies {
+  display: grid;
+  grid-template-rows: repeat(2, minmax(min-content, max-content));
+  justify-content: center;
+  justify-items: center;
+  margin-top: 2rem;
+
+  &-tracking {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(min-content, max-content));
+    grid-gap: 0.5rem;
+
+    &-time {
+      font-weight: 800;
+    }
+
+    &-title {
+      font-weight: 800;
+    }
+  }
+
+  &-app {
+    display: grid;
+
+    grid-template-rows: repeat(2, minmax(min-content, max-content));
+    grid-template-columns: repeat(3, minmax(min-content, max-content));
+    grid-gap: 1rem;
+    margin-top: 1rem;
+
+    &s {
+      display: grid;
+      position: relative;
+      align-items: center;
+      justify-items: center;
+      width: 5.625rem;
+      height: 3.75rem;
+      border-radius: 0.5rem;
+      background-color: white;
+    }
+
+    &-check {
+      display: none;
+      position: absolute;
+      right: 0.2rem;
+      top: 0.3rem;
+
+      &-nature {
+        display: block;
+      }
+    }
+
+    &-nature {
+      background-color: $green;
+      position: relative;
+      overflow: hidden;
+    }
+
+    &-reflection {
+      grid-column: 2/3;
+      grid-row: 2/3;
+    }
+  }
+}
+
+.weeklies-app-icon-chart {
+  position: absolute;
+  grid-column: 1/2;
+  grid-row: 1/2;
+  display: block;
+  //   margin: 10px auto;
+  align-self: center;
+  //   max-width: 80%;
+  //   max-height: 250px;
+  width: 100%;
+  stroke: $dark;
+  // background: white;
+  // border-radius: 50%;
+  // box-shadow: inset 0px 0px 0px 10px black;
+  z-index: 3;
+}
+
+.weeklies-app-icon-score {
+  fill: none;
+  stroke-width: 2.8;
+  //   stroke-linecap: round;
+  animation: progress 1s ease-out forwards;
+  z-index: 4;
+}
