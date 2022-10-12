@@ -8,13 +8,24 @@ import shower from "./img/shower.svg";
 import breath from "./img/breath.svg";
 import gratitude from "./img/gratitude.svg";
 import check from "./img/check.svg";
+
 import Nourish from "../Nourish/Nourish";
+import Training from "../Training/Training";
+import Sleep from "../Sleep/Sleep";
+import Shower from "../Shower/Shower";
 
 function Dailies() {
   const [nourishPop, setNourishPop] = useState(false);
+  const [trainingPop, setTrainingPop] = useState(false);
+  const [sleepPop, setSleepPop] = useState(false);
+  const [showerPop, setShowerPop] = useState(false);
   return (
     <div className="dailies">
       <Nourish trigger={nourishPop} setNourishPop={setNourishPop} />
+      <Training trigger={trainingPop} setTrainingPop={setTrainingPop} />
+      <Sleep trigger={sleepPop} setSleepPop={setSleepPop} />
+      <Shower trigger={showerPop} setShowerPop={setShowerPop} />
+
       <div className="dailies-tracking">
         <p className="dailies-tracking-time">15:30:17</p>
         <p className="dailies-tracking-text">LEFT TO TRACK YOUR</p>
@@ -34,7 +45,10 @@ function Dailies() {
           />
         </div>
 
-        <div className="dailies-apps dailies-app-training">
+        <div
+          className="dailies-apps dailies-app-training"
+          onClick={() => setTrainingPop(true)}
+        >
           <img
             src={check}
             alt=""
@@ -46,7 +60,10 @@ function Dailies() {
             className="dailies-app-icon dailies-app-icon-training"
           />
         </div>
-        <div className="dailies-apps dailies-app-sleep">
+        <div
+          className="dailies-apps dailies-app-sleep"
+          onClick={() => setSleepPop(true)}
+        >
           <img src={check} alt="" className="dailies-app-check" />
           <img
             src={sleep}
@@ -54,7 +71,10 @@ function Dailies() {
             className="dailies-app-icon dailies-app-icon-sleep"
           />
         </div>
-        <div className="dailies-apps dailies-app-shower">
+        <div
+          className="dailies-apps dailies-app-shower"
+          onClick={() => setShowerPop(true)}
+        >
           <img src={check} alt="" className="dailies-app-check" />
           <img
             src={shower}
