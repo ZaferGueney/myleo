@@ -14,18 +14,29 @@ import Training from "../Training/Training";
 import Sleep from "../Sleep/Sleep";
 import Shower from "../Shower/Shower";
 
+import BleibDran from "../BleibDran/BleibDran";
+
 function Dailies() {
   const [nourishPop, setNourishPop] = useState(false);
   const [trainingPop, setTrainingPop] = useState(false);
   const [sleepPop, setSleepPop] = useState(false);
   const [showerPop, setShowerPop] = useState(false);
+  const [bleibDran, setBleibDran] = useState(false);
+
   return (
     <div className="dailies">
-      <Nourish trigger={nourishPop} setNourishPop={setNourishPop} />
+      <Nourish
+        trigger={nourishPop}
+        setNourishPop={setNourishPop}
+        triggerBleibDran={bleibDran}
+        setBleibDran={setBleibDran}
+      />
       <Training trigger={trainingPop} setTrainingPop={setTrainingPop} />
       <Sleep trigger={sleepPop} setSleepPop={setSleepPop} />
       <Shower trigger={showerPop} setShowerPop={setShowerPop} />
+      <BleibDran triggerBleibDran={bleibDran} setBleibDran={setBleibDran} />
 
+      <h2 className="dailies-title">HABIT TRACKING</h2>
       <div className="dailies-tracking">
         <p className="dailies-tracking-time">15:30:17</p>
         <p className="dailies-tracking-text">LEFT TO TRACK YOUR</p>

@@ -30,4 +30,14 @@ $dark: #1b1b1b;
   justify-content: center;
   padding-top: 2rem;
   padding-bottom: 3rem;
+
+  @include mq(welldone) {
+    padding: 0;
+  }
+
+  &-image {
+    @include mq(welldone) {
+      height: 19rem;
+    }
+  }
 }

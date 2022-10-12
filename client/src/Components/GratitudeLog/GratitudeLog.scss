@@ -30,6 +30,10 @@ $brown: #d3d3d3;
   display: grid;
   justify-content: center;
 
+  @include mq(welldone) {
+    padding: 0;
+  }
+
   &-header {
     display: grid;
     justify-content: center;
@@ -54,6 +58,10 @@ $brown: #d3d3d3;
       padding: 1rem;
       align-items: center;
       border-bottom: 1px solid $brown;
+
+      @include mq(welldone) {
+        padding: 0.75rem;
+      }
 
       &-text {
         grid-row: 2/3;

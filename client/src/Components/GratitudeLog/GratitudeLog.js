@@ -25,16 +25,14 @@ function GratitudeLog() {
           <img src={date} alt="" className="gratitudelog-log-single-image" />
           <div className="gratitudelog-log-single-title">vor 20 Minuten</div>
           <p className="gratitudelog-log-single-text">
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Esse,
-            consectetur.
+            Lorem ipsum dolor sit amet consectetur.
           </p>
         </div>
         <div className="gratitudelog-log-single">
           <img src={date} alt="" className="gratitudelog-log-single-image" />
           <div className="gratitudelog-log-single-title">vor 20 Minuten</div>
           <p className="gratitudelog-log-single-text">
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Esse,
-            consectetur.
+            Lorem ipsum dolor sit amet consectetur.
           </p>
         </div>
       </div>

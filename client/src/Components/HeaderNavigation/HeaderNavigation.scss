@@ -29,7 +29,7 @@ $dark: #1b1b1b;
   display: grid;
   grid-template-columns: 0.15fr 0.7fr 0.15fr;
   //   grid-template-rows: 1fr 1fr 1fr;
-  //   grid-template-rows: repeat(3, minmax(min-content, max-content));
+
   background-color: $dark;
   color: white;
   text-align: center;
@@ -38,9 +38,19 @@ $dark: #1b1b1b;
   height: 7rem;
   margin-bottom: 1.5rem;
 
+  @include mq(welldone) {
+    grid-template-rows: repeat(3, minmax(min-content, max-content));
+    height: 9.5rem;
+    padding: 1rem;
+  }
+
   &-profile {
     align-self: end;
     width: 1.8rem;
+
+    @include mq(welldone) {
+      align-self: center;
+    }
   }
 
   &-arrow {
@@ -48,26 +58,52 @@ $dark: #1b1b1b;
     grid-row: 3/4;
     align-self: start;
     width: 1.8rem;
+
+    @include mq(welldone) {
+      grid-column: 2/3;
+      grid-row: 3/4;
+      justify-self: start;
+      align-self: center;
+      margin-left: 16rem;
+      width: 1.4rem;
+      margin-top: 0.2rem;
+    }
   }
 
   &-date {
     grid-column: 2/3;
     grid-row: 2/3;
     font-weight: 800;
+
+    @include mq(welldone) {
+      margin-top: 0.5rem;
+    }
   }
 
   &-days {
     grid-column: 2/3;
     grid-row: 3/4;
     align-self: start;
+
+    @include mq(welldone) {
+      align-self: center;
+      margin-top: 0.2rem;
+    }
   }
 
   &-burger {
     align-self: end;
     width: 2.3rem;
+    @include mq(welldone) {
+      align-self: center;
+    }
   }
 
   &-logo {
     width: 3.5rem;
+    @include mq(welldone) {
+      width: 2.5rem;
+      align-self: center;
+    }
   }
 }

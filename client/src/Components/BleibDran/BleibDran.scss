@@ -27,7 +27,7 @@ $dark: #1b1b1b;
 $brown: #d3d3d3;
 $white: #f4f5ef;
 
-.nourish {
+.bleibdran {
   position: fixed;
   top: 0;
   left: 0;
@@ -43,7 +43,7 @@ $white: #f4f5ef;
     position: absolute;
     width: 100%;
     height: 30.5rem;
-    background-color: $white;
+    background-color: $pink;
     display: grid;
     justify-content: center;
     justify-items: center;
@@ -72,6 +72,7 @@ $white: #f4f5ef;
       font-weight: 800;
       margin-top: 0.2rem;
       font-size: 1.25rem;
+      color: $white;
     }
 
     &-sub {
@@ -84,17 +85,21 @@ $white: #f4f5ef;
       width: 18.125rem;
       height: 3.125rem;
       border: none;
-      background-color: #eb4abc;
-      color: white;
+      background-color: $white;
+      color: $pink;
       border-radius: 1.563rem;
       font-weight: 800;
       font-size: 0.813rem;
     }
 
     &-text {
-      padding: 1.5rem;
+      padding: 2rem;
       font-size: 0.75rem;
       color: 31302E;
+      @include mq(welldone) {
+        padding-left: 4rem;
+        padding-right: 4rem;
+      }
     }
 
     &-button-cancel {

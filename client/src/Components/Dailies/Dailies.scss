@@ -32,6 +32,17 @@ $dark: #1b1b1b;
   justify-items: center;
   margin-top: 2rem;
 
+  @include mq(welldone) {
+    padding-top: 9rem;
+    margin-bottom: 2.5rem;
+  }
+
+  &-title {
+    font-size: 1.3rem;
+    margin-bottom: 0.7rem;
+    font-weight: 800;
+  }
+
   &-tracking {
     display: grid;
     grid-template-columns: repeat(3, minmax(min-content, max-content));
@@ -53,6 +64,11 @@ $dark: #1b1b1b;
     grid-template-columns: repeat(3, minmax(min-content, max-content));
     grid-gap: 1rem;
     margin-top: 1rem;
+
+    @include mq(welldone) {
+      grid-template-columns: repeat(6, minmax(min-content, max-content));
+      grid-template-rows: 1fr;
+    }
 
     &s {
       display: grid;

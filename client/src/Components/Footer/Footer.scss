@@ -33,6 +33,11 @@ $brown: #d3d3d3;
   justify-content: center;
   margin-top: 3.5rem;
   margin-bottom: 1.5rem;
+
+  @include mq(welldone) {
+    justify-content: start;
+    margin-left: 2rem;
+  }
   &-link {
     color: #31302e;
     font-size: 0.625rem;

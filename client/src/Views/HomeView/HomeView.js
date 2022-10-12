@@ -21,11 +21,16 @@ function HomeView() {
           <TagesScore />
           <Ranking />
         </div>
+
         <Dailies />
         <Weeklies />
       </div>
-      <Blog />
-      <GratitudeLog />
+      <div className="homeview-blog-gratitude">
+        <Blog />
+        <Blog />
+        <GratitudeLog />
+      </div>
+
       <Footer />
       <FooterNavigation />
     </div>

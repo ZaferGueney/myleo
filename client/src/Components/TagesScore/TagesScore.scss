@@ -85,6 +85,9 @@ $dark: #1b1b1b;
     justify-self: center;
     align-self: center;
     z-index: 1;
+    @include mq(welldone) {
+      grid-gap: 0.5rem;
+    }
   }
 
   &-crown {

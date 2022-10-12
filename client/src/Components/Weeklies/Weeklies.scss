@@ -54,6 +54,11 @@ $dark: #1b1b1b;
     grid-gap: 1rem;
     margin-top: 1rem;
 
+    @include mq(welldone) {
+      grid-template-columns: repeat(4, minmax(min-content, max-content));
+      grid-template-rows: 1fr;
+    }
+
     &s {
       display: grid;
       position: relative;
@@ -85,6 +90,11 @@ $dark: #1b1b1b;
     &-reflection {
       grid-column: 2/3;
       grid-row: 2/3;
+
+      @include mq(welldone) {
+        grid-row: 1/2;
+        grid-column: 4/5;
+      }
     }
   }
 }
