@@ -14,7 +14,10 @@ function HeaderNavigation() {
       <img src={arrow} alt="" className="header-navigation-arrow" />
       <img src={burger} alt="" className="header-navigation-burger" />
       <p className="header-navigation-date">MONTAG, 11. JANUAR 2022</p>
-      <p className="header-navigation-days">TAG 3 VON 38</p>
+      <div className="header-navigation-days">
+        <img src={arrow} alt="" className="header-navigation-arrow-2" />
+        <p className="header-navigation-days-title">TAG 3 VON 38</p>
+      </div>
     </div>
   );
 }

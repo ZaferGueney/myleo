@@ -1,0 +1,131 @@
+*,
+*::before,
+*::after {
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  margin: 0;
+}
+
+.ranking {
+  position: relative;
+  width: 10.125rem;
+  height: 10.125rem;
+  display: -ms-grid;
+  display: grid;
+}
+
+.ranking-chart {
+  -ms-grid-column: 1;
+  -ms-grid-column-span: 1;
+  grid-column: 1/2;
+  -ms-grid-row: 1;
+  -ms-grid-row-span: 1;
+  grid-row: 1/2;
+  display: block;
+  margin: 10px auto;
+  -ms-flex-item-align: center;
+      -ms-grid-row-align: center;
+      align-self: center;
+  max-width: 80%;
+  max-height: 250px;
+  stroke: #cbf73f;
+  z-index: 3;
+}
+
+.ranking-circle {
+  fill: none;
+  stroke-width: 2.8;
+  -webkit-animation: progress 1s ease-out forwards;
+          animation: progress 1s ease-out forwards;
+  z-index: 4;
+}
+
+.ranking-circle-bg {
+  fill: none;
+  stroke: #d3d3d3;
+  stroke-width: 0.4;
+  z-index: 1;
+}
+
+.ranking-circle-bg-2 {
+  position: absolute;
+  width: 7.2rem;
+  height: 7.2rem;
+  top: 0.2rem;
+  left: 1.4rem;
+  background-color: white;
+  z-index: 0;
+  border-radius: 50%;
+}
+
+.ranking-content {
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-rows: (minmax(min-content, max-content))[3];
+      grid-template-rows: repeat(3, minmax(-webkit-min-content, -webkit-max-content));
+      grid-template-rows: repeat(3, minmax(min-content, max-content));
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  justify-items: center;
+  -ms-grid-column: 1;
+  -ms-grid-column-span: 1;
+  grid-column: 1/2;
+  -ms-grid-row: 1;
+  -ms-grid-row-span: 1;
+  grid-row: 1/2;
+  -ms-grid-column-align: center;
+      justify-self: center;
+  -ms-grid-row-align: center;
+      align-self: center;
+  z-index: 1;
+}
+
+@media (min-width: 1000px) {
+  .ranking-content {
+    grid-gap: 0.5rem;
+  }
+}
+
+.ranking-crown {
+  margin-bottom: -1.1rem;
+}
+
+.ranking-rate {
+  font-weight: 800;
+  font-size: 3rem;
+}
+
+.ranking-percent {
+  -ms-flex-item-align: start;
+      -ms-grid-row-align: start;
+      align-self: start;
+  font-weight: 900;
+  font-size: 0.9rem;
+  margin-top: -0.5rem;
+}
+
+.ranking-footer-title {
+  text-align: center;
+  font-weight: 800;
+}
+
+.ranking-footer-text {
+  text-align: center;
+  font-weight: 800;
+  color: #999999;
+  font-size: 0.8rem;
+}
+
+@-webkit-keyframes progress {
+  0% {
+    stroke-dasharray: 0 100;
+  }
+}
+
+@keyframes progress {
+  0% {
+    stroke-dasharray: 0 100;
+  }
+}
+/*# sourceMappingURL=Ranking.css.map */

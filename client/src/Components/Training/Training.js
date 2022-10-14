@@ -3,6 +3,10 @@ import "./Training.scss";
 import training from "../Dailies/img/training.svg";
 
 function Training(props) {
+  const handleBleibDran = () => {
+    props.setTrainingPop(false);
+    props.setBleibDran(true);
+  };
   return props.trigger ? (
     <div className="training">
       <div className="training-inner">
@@ -23,7 +27,7 @@ function Training(props) {
         </button>
         <button
           className="training-inner-button-cancel cancel-button"
-          onClick={() => props.setTrainingPop(false)}
+          onClick={handleBleibDran}
         >
           Abbrechen
         </button>

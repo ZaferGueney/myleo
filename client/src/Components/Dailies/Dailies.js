@@ -31,9 +31,25 @@ function Dailies() {
         triggerBleibDran={bleibDran}
         setBleibDran={setBleibDran}
       />
-      <Training trigger={trainingPop} setTrainingPop={setTrainingPop} />
-      <Sleep trigger={sleepPop} setSleepPop={setSleepPop} />
-      <Shower trigger={showerPop} setShowerPop={setShowerPop} />
+      <Training
+        trigger={trainingPop}
+        setTrainingPop={setTrainingPop}
+        triggerBleibDran={bleibDran}
+        setBleibDran={setBleibDran}
+      />
+      <Sleep
+        trigger={sleepPop}
+        setSleepPop={setSleepPop}
+        triggerBleibDran={bleibDran}
+        setBleibDran={setBleibDran}
+      />
+      <Shower
+        trigger={showerPop}
+        setShowerPop={setShowerPop}
+        triggerBleibDran={bleibDran}
+        setBleibDran={setBleibDran}
+      />
+
       <BleibDran triggerBleibDran={bleibDran} setBleibDran={setBleibDran} />
 
       <h2 className="dailies-title">HABIT TRACKING</h2>

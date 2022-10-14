@@ -3,6 +3,10 @@ import "./Sleep.scss";
 import sleep from "../Dailies/img/sleep.svg";
 
 function Sleep(props) {
+  const handleBleibDran = () => {
+    props.setSleepPop(false);
+    props.setBleibDran(true);
+  };
   return props.trigger ? (
     <div className="sleep">
       <div className="sleep-inner">
@@ -21,7 +25,7 @@ function Sleep(props) {
         </button>
         <button
           className="sleep-inner-button-cancel cancel-button"
-          onClick={() => props.setSleepPop(false)}
+          onClick={handleBleibDran}
         >
           Abbrechen
         </button>

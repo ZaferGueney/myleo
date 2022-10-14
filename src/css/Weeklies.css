@@ -1,0 +1,137 @@
+*,
+*::before,
+*::after {
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  margin: 0;
+}
+
+.weeklies {
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-rows: (minmax(min-content, max-content))[2];
+      grid-template-rows: repeat(2, minmax(-webkit-min-content, -webkit-max-content));
+      grid-template-rows: repeat(2, minmax(min-content, max-content));
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  justify-items: center;
+  margin-top: 2rem;
+}
+
+.weeklies-tracking {
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: (minmax(min-content, max-content))[3];
+      grid-template-columns: repeat(3, minmax(-webkit-min-content, -webkit-max-content));
+      grid-template-columns: repeat(3, minmax(min-content, max-content));
+  grid-gap: 0.5rem;
+}
+
+.weeklies-tracking-time {
+  font-weight: 800;
+}
+
+.weeklies-tracking-title {
+  font-weight: 800;
+}
+
+.weeklies-app {
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-rows: (minmax(min-content, max-content))[2];
+      grid-template-rows: repeat(2, minmax(-webkit-min-content, -webkit-max-content));
+      grid-template-rows: repeat(2, minmax(min-content, max-content));
+  -ms-grid-columns: (minmax(min-content, max-content))[3];
+      grid-template-columns: repeat(3, minmax(-webkit-min-content, -webkit-max-content));
+      grid-template-columns: repeat(3, minmax(min-content, max-content));
+  grid-gap: 1rem;
+  margin-top: 1rem;
+}
+
+@media (min-width: 1000px) {
+  .weeklies-app {
+    -ms-grid-columns: (minmax(min-content, max-content))[4];
+        grid-template-columns: repeat(4, minmax(-webkit-min-content, -webkit-max-content));
+        grid-template-columns: repeat(4, minmax(min-content, max-content));
+    -ms-grid-rows: 1fr;
+        grid-template-rows: 1fr;
+  }
+}
+
+.weeklies-apps {
+  display: -ms-grid;
+  display: grid;
+  position: relative;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  justify-items: center;
+  width: 5.625rem;
+  height: 3.75rem;
+  border-radius: 0.5rem;
+  background-color: white;
+}
+
+.weeklies-app-check {
+  display: none;
+  position: absolute;
+  right: 0.2rem;
+  top: 0.3rem;
+}
+
+.weeklies-app-check-nature {
+  display: block;
+}
+
+.weeklies-app-nature {
+  background-color: #cbf73f;
+  position: relative;
+  overflow: hidden;
+}
+
+.weeklies-app-reflection {
+  -ms-grid-column: 2;
+  -ms-grid-column-span: 1;
+  grid-column: 2/3;
+  -ms-grid-row: 2;
+  -ms-grid-row-span: 1;
+  grid-row: 2/3;
+}
+
+@media (min-width: 1000px) {
+  .weeklies-app-reflection {
+    -ms-grid-row: 1;
+    -ms-grid-row-span: 1;
+    grid-row: 1/2;
+    -ms-grid-column: 4;
+    -ms-grid-column-span: 1;
+    grid-column: 4/5;
+  }
+}
+
+.weeklies-app-icon-chart {
+  position: absolute;
+  -ms-grid-column: 1;
+  -ms-grid-column-span: 1;
+  grid-column: 1/2;
+  -ms-grid-row: 1;
+  -ms-grid-row-span: 1;
+  grid-row: 1/2;
+  display: block;
+  -ms-flex-item-align: center;
+      -ms-grid-row-align: center;
+      align-self: center;
+  width: 100%;
+  stroke: #1b1b1b;
+  z-index: 3;
+}
+
+.weeklies-app-icon-score {
+  fill: none;
+  stroke-width: 2.8;
+  -webkit-animation: progress 1s ease-out forwards;
+          animation: progress 1s ease-out forwards;
+  z-index: 4;
+}
+/*# sourceMappingURL=Weeklies.css.map */

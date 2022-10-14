@@ -1,0 +1,85 @@
+*,
+*::before,
+*::after {
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  margin: 0;
+}
+
+.homeview {
+  padding-bottom: 3.5rem;
+}
+
+.homeview-score {
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-rows: (minmax(min-content, max-content))[2];
+      grid-template-rows: repeat(2, minmax(-webkit-min-content, -webkit-max-content));
+      grid-template-rows: repeat(2, minmax(min-content, max-content));
+  grid-gap: 1rem;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+@media (min-width: 1000px) {
+  .homeview-score {
+    position: absolute;
+    top: 7.5rem;
+    left: 0;
+    right: 0;
+    -ms-grid-columns: (minmax(min-content, max-content))[3];
+        grid-template-columns: repeat(3, minmax(-webkit-min-content, -webkit-max-content));
+        grid-template-columns: repeat(3, minmax(min-content, max-content));
+    -ms-grid-rows: 1fr;
+        grid-template-rows: 1fr;
+  }
+}
+
+.homeview-score .gesamtscore {
+  -ms-grid-row: 2;
+  -ms-grid-row-span: 1;
+  grid-row: 2/3;
+  -ms-grid-column: 1;
+  -ms-grid-column-span: 2;
+  grid-column: 1/3;
+  -ms-grid-column-align: center;
+      justify-self: center;
+}
+
+@media (min-width: 1000px) {
+  .homeview-score .gesamtscore {
+    -ms-grid-row: 1;
+    -ms-grid-row-span: 1;
+    grid-row: 1/2;
+    -ms-grid-column: 3;
+    -ms-grid-column-span: 1;
+    grid-column: 3/4;
+  }
+}
+
+@media (min-width: 1000px) {
+  .homeview-blog-gratitude {
+    margin-top: 2rem;
+    display: -ms-grid;
+    display: grid;
+    -ms-grid-columns: (minmax(min-content, max-content))[3];
+        grid-template-columns: repeat(3, minmax(-webkit-min-content, -webkit-max-content));
+        grid-template-columns: repeat(3, minmax(min-content, max-content));
+    grid-gap: 1rem;
+    padding: 1rem;
+  }
+}
+
+.homeview-background {
+  background: -webkit-gradient(linear, left top, left bottom, color-stop(33.46%, #f8faec), color-stop(73.99%, #abad9f));
+  background: linear-gradient(180deg, #f8faec 33.46%, #abad9f 73.99%);
+  padding-bottom: 2rem;
+}
+
+@media (min-width: 1000px) {
+  .homeview-background {
+    padding-bottom: 3rem;
+  }
+}
+/*# sourceMappingURL=HomeView.css.map */

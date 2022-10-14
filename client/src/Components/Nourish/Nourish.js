@@ -1,12 +1,26 @@
 import React, { useState } from "react";
 import "./Nourish.scss";
-
 import nourish from "../Dailies/img/nourish.svg";
+import axios from "axios";
 
 function Nourish(props) {
   const handleBleibDran = () => {
     props.setNourishPop(false);
     props.setBleibDran(true);
+
+    axios
+      .post(
+        "http://localhost:5000/posts/add",
+        {
+          title: "FINAL",
+          description: "TestDescripto",
+          training: ["xyz", "zxy", "yesyes", ["NONO", "BUT BUT"]],
+        },
+        { responseType: "blob" }
+      )
+      .then((response) => {
+        console.log(response);
+      });
   };
 
   return props.trigger ? (

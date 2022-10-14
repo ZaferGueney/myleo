@@ -1,0 +1,36 @@
+*,
+*::before,
+*::after {
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  margin: 0;
+}
+
+.footer {
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: (minmax(min-content, max-content))[4];
+      grid-template-columns: repeat(4, minmax(-webkit-min-content, -webkit-max-content));
+      grid-template-columns: repeat(4, minmax(min-content, max-content));
+  grid-gap: 1rem;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  margin-top: 3.5rem;
+  margin-bottom: 1.5rem;
+}
+
+@media (min-width: 1000px) {
+  .footer {
+    -webkit-box-pack: start;
+        -ms-flex-pack: start;
+            justify-content: start;
+    margin-left: 2rem;
+  }
+}
+
+.footer-link {
+  color: #31302e;
+  font-size: 0.625rem;
+}
+/*# sourceMappingURL=Footer.css.map */

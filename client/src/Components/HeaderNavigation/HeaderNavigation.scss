@@ -60,13 +60,15 @@ $dark: #1b1b1b;
     width: 1.8rem;
 
     @include mq(welldone) {
-      grid-column: 2/3;
-      grid-row: 3/4;
-      justify-self: start;
-      align-self: center;
-      margin-left: 16rem;
-      width: 1.4rem;
-      margin-top: 0.2rem;
+      display: none;
+    }
+  }
+
+  &-arrow-2 {
+    display: none;
+
+    @include mq(welldone) {
+      display: block;
     }
   }
 
@@ -84,6 +86,10 @@ $dark: #1b1b1b;
     grid-column: 2/3;
     grid-row: 3/4;
     align-self: start;
+    display: grid;
+    grid-template-columns: repeat(2, minmax(min-content, max-content));
+    align-items: center;
+    grid-gap: 0.5rem;
 
     @include mq(welldone) {
       align-self: center;

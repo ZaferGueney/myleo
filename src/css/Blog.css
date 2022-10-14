@@ -1,0 +1,30 @@
+*,
+*::before,
+*::after {
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  margin: 0;
+}
+
+.blog {
+  display: -ms-grid;
+  display: grid;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  padding-top: 2rem;
+  padding-bottom: 3rem;
+}
+
+@media (min-width: 1000px) {
+  .blog {
+    padding: 0;
+  }
+}
+
+@media (min-width: 1000px) {
+  .blog-image {
+    height: 19rem;
+  }
+}
+/*# sourceMappingURL=Blog.css.map */

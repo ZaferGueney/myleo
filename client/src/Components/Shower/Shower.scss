@@ -50,10 +50,22 @@ $white: #f4f5ef;
     text-align: center;
     grid-template-rows: repeat(6, minmax(min-content, max-content));
 
+    @include mq(welldone) {
+      width: 30.375rem;
+      height: 21.813rem;
+      justify-self: center;
+      align-self: center;
+      border-radius: 0.75rem;
+    }
+
     &-image {
       font-weight: 800;
       margin-top: 2.625rem;
       width: 2.5rem;
+
+      @include mq(welldone) {
+        margin-top: 2rem;
+      }
     }
 
     &-title {

@@ -3,6 +3,10 @@ import "./Shower.scss";
 import shower from "../Dailies/img/shower.svg";
 
 function Shower(props) {
+  const handleBleibDran = () => {
+    props.setShowerPop(false);
+    props.setBleibDran(true);
+  };
   return props.trigger ? (
     <div className="shower">
       <div className="shower-inner">
@@ -21,7 +25,7 @@ function Shower(props) {
         </button>
         <button
           className="shower-inner-button-cancel cancel-button"
-          onClick={() => props.setShowerPop(false)}
+          onClick={handleBleibDran}
         >
           Abbrechen
         </button>
