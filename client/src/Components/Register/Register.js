@@ -122,8 +122,6 @@ class Register extends Component {
                 value={this.state.password}
               ></input>
             </div>
-
-            <input type="submit" className="" value="Submit" />
           </form>
         </div>
       </div>

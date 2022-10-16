@@ -25,17 +25,19 @@ $green: #cbf73f;
 $pink: #eb4abc;
 $dark: #1b1b1b;
 $brown: #d3d3d3;
-$white: #f4f5ef;
 
-.register {
+.countdown {
+  width: 100vw;
+  height: 100vh;
+  border: 2px solid black;
   display: grid;
+  grid-template-columns: repeat(8, minmax(min-content, max-content));
+  gap: 0.5rem;
   justify-content: center;
-  background-color: $white;
 
-  &-title {
-    margin-top: 6rem;
-    font-size: 1.5rem;
-    font-weight: 800;
-    text-align: center;
-  }
+  align-content: center;
+}
+
+.two-numbers {
+  width: 2ch;
 }

@@ -75,14 +75,10 @@ $dark: #1b1b1b;
       position: absolute;
       right: 0.2rem;
       top: 0.3rem;
-
-      &-nature {
-        display: block;
-      }
     }
 
     &-nature {
-      background-color: $green;
+      // background-color: $green;
       position: relative;
       overflow: hidden;
     }

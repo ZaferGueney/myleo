@@ -1,0 +1,324 @@
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+}
+
+$breakpoints: (
+  small: 480px,
+  bloody: 650px,
+  midsmall: 800px,
+  welldone: 1000px,
+  medium: 1200px,
+  large: 1800px,
+);
+
+@mixin mq($key) {
+  $size: map-get($breakpoints, $key);
+  @media (min-width: $size) {
+    @content;
+  }
+}
+
+$green: #cbf73f;
+$pink: #eb4abc;
+$dark: #1b1b1b;
+$grey: #d3d3d3;
+$white: #f4f5ef;
+
+.breathing {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: 5;
+  display: grid;
+  // justify-content: center;
+  align-content: center;
+
+  &-inner {
+    position: relative;
+    width: 100%;
+    height: 30.5rem;
+    background-color: $white;
+    display: grid;
+    justify-content: center;
+    justify-items: center;
+    align-items: center;
+    align-content: center;
+    text-align: center;
+    grid-template-rows: repeat(6, minmax(min-content, max-content));
+    padding: 1rem;
+
+    &-exercise-div {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+    }
+
+    &-timer {
+      //   position: absolute;
+      top: 0;
+      left: 3rem;
+      z-index: 5;
+    }
+
+    &-exercise {
+      display: grid;
+      grid-template-rows: repeat(auto, minmax(min-content, max-content));
+      position: relative;
+      width: 100%;
+      height: 100%;
+
+      &-outer {
+        display: flex;
+        width: 10.063rem;
+        height: 10.063rem;
+        border-radius: 50%;
+        background-color: white;
+        border: 1px solid $grey;
+        margin-top: 1rem;
+        margin-bottom: 1rem;
+        justify-content: center;
+        align-items: center;
+        justify-self: center;
+      }
+
+      &-center {
+        width: 2.786rem;
+        height: 2.786rem;
+        border-radius: 50%;
+        background-color: $green;
+        // margin-top: 1rem;
+        // margin-bottom: 1rem;
+
+        &-animation {
+          animation: breathing infinite 10s linear;
+        }
+      }
+
+      &-button {
+        width: 7.125rem;
+        height: 2.625rem;
+        border: none;
+        background-color: $green;
+        color: white;
+        border-radius: 1.563rem;
+        font-weight: 800;
+        font-size: 0.613rem;
+        align-self: center;
+        justify-self: center;
+
+        @include mq(welldone) {
+          width: 7.125rem;
+          height: 2.125rem;
+          font-size: 0.7rem;
+        }
+      }
+
+      &-button-stop {
+        background-color: $pink !important;
+      }
+
+      &-in,
+      &-out {
+        position: absolute;
+        opacity: 0;
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        margin: auto;
+
+        width: 6rem;
+        height: 1rem;
+      }
+
+      &-in {
+        left: 0;
+
+        @include mq(welldone) {
+          left: -4rem;
+        }
+      }
+
+      &-out {
+        right: 0;
+        @include mq(welldone) {
+          right: -4rem;
+        }
+      }
+
+      &-in-animation {
+        animation: breathingIn infinite 10s;
+      }
+
+      &-out-animation {
+        animation: breathingOut infinite 10s;
+      }
+    }
+
+    @include mq(welldone) {
+      width: 33.688rem;
+      height: 25.813rem;
+      justify-self: center;
+      align-self: center;
+      border-radius: 0.75rem;
+    }
+
+    &-image {
+      font-weight: 800;
+
+      width: 2.5rem;
+      // margin-bottom: 1rem;
+
+      @include mq(welldone) {
+        margin-top: 0;
+        margin-bottom: 0;
+        width: 2rem;
+      }
+    }
+
+    &-title {
+      font-weight: 800;
+      margin-top: 0;
+      font-size: 1.25rem;
+      @include mq(welldone) {
+        font-size: 1rem;
+      }
+    }
+
+    // &-sub {
+    //   font-size: 0.875rem;
+    //   margin-top: 0.8rem;
+    //   margin-bottom: 0.5rem;
+    //   @include mq(welldone) {
+    //     font-size: 0.7rem;
+    //   }
+    // }
+
+    &-button-agree {
+      margin-top: 1rem;
+      width: 18.125rem;
+      height: 3.125rem;
+      border: none;
+      background-color: #eb4abc;
+      color: white;
+      border-radius: 1.563rem;
+      font-weight: 800;
+      font-size: 0.813rem;
+      align-self: start;
+
+      @include mq(welldone) {
+        margin-top: 1rem;
+        width: 15.125rem;
+        height: 2.525rem;
+        font-size: 0.7rem;
+      }
+    }
+
+    // &-button-almost {
+    //   margin-top: 1.1rem;
+    //   width: 18.125rem;
+    //   height: 3.125rem;
+    //   border: none;
+    //   background-color: $grey;
+    //   color: white;
+    //   border-radius: 1.563rem;
+    //   font-weight: 800;
+    //   font-size: 0.813rem;
+
+    //   @include mq(welldone) {
+    //     margin-top: 0.5rem;
+    //     width: 15.125rem;
+    //     height: 2.525rem;
+    //     font-size: 0.7rem;
+    //   }
+    // }
+
+    // &-text {
+    //   padding-top: 1rem;
+    //   padding-left: 1.5rem;
+    //   padding-right: 1.5rem;
+
+    //   font-size: 0.75rem;
+    //   color: 31302E;
+
+    //   @include mq(welldone) {
+    //     font-size: 0.65rem;
+    //     padding-top: 0.5rem;
+    //     padding-left: 4.5rem;
+    //     padding-right: 4.5rem;
+    //   }
+    // }
+
+    &-button-cancel {
+      width: 9.125rem;
+      height: 3.125rem;
+      margin-top: 0.5rem;
+      border: none;
+      background-color: transparent;
+      color: $grey;
+      border-radius: 1.563rem;
+      font-weight: 800;
+      font-size: 0.813rem;
+
+      @include mq(welldone) {
+        height: 2rem;
+        margin-top: 0rem;
+      }
+    }
+  }
+}
+
+@keyframes breathing {
+  0% {
+    width: 2.786rem;
+    height: 2.786rem;
+  }
+  50% {
+    width: 10.063rem;
+    height: 10.063rem;
+  }
+  100% {
+    width: 2.786rem;
+    height: 2.786rem;
+  }
+}
+
+@keyframes breathingIn {
+  0% {
+    opacity: 0;
+  }
+  25% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0;
+  }
+  75% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+
+@keyframes breathingOut {
+  0% {
+    opacity: 0;
+  }
+  25% {
+    opacity: 0;
+  }
+  50% {
+    opacity: 0;
+  }
+  75% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}

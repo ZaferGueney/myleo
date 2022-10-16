@@ -2,29 +2,28 @@ const mongoose = require("mongoose");
 
 const PostSchema = mongoose.Schema(
   {
-    _id: {
+    // _id: {
+    //   type: String,
+    //   required: false,
+    //   unique: false,
+    // },
+    email: {
       type: String,
-      required: false,
-      unique: false,
     },
-    title: {
-      type: String,
-      required: false,
+    dailies: {
+      type: Object,
+      default: {},
     },
-    description: {
-      type: String,
-      required: false,
-    },
-    training: {
-      type: Array,
-      default: [],
+    weeklies: {
+      type: Object,
+      default: {},
     },
     date: {
       type: Date,
       default: Date.now,
     },
-  },
-  { _id: false }
+  }
+  // { _id: false }
 );
 
 module.exports = mongoose.model("Posts", PostSchema);

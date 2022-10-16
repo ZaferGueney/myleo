@@ -86,14 +86,22 @@ $dark: #1b1b1b;
       position: absolute;
       right: 0.2rem;
       top: 0.3rem;
-
-      &-training {
-        display: block;
-      }
     }
+  }
+}
 
-    &-training {
-      background-color: $green;
-    }
+.app-is-check {
+  background-color: $green;
+}
+
+.check-is-check {
+  display: block;
+}
+
+.reset-image {
+  margin-bottom: 1rem;
+
+  @include mq(welldone) {
+    margin-bottom: 1rem !important;
   }
 }

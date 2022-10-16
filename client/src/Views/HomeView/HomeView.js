@@ -10,10 +10,12 @@ import Blog from "../../Components/Blog/Blog.js";
 import GratitudeLog from "../../Components/GratitudeLog/GratitudeLog.js";
 import Footer from "../../Components/Footer/Footer.js";
 import FooterNavigation from "../../Components/FooterNavigation/FooterNavigation.js";
+import Countdown from "../../Components/Countdown/Countdown.js";
 
 function HomeView() {
   return (
     <div className="homeview">
+      {/* <Countdown countdownTimestampMs={1667602800000} /> */}
       <HeaderNavigation />
       <div className="homeview-background">
         <div className="homeview-score">

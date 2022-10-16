@@ -91,6 +91,13 @@
   color: 31302E;
 }
 
+@media (min-width: 1000px) {
+  .nourish-inner-text {
+    padding-left: 3.5rem;
+    padding-right: 3.5rem;
+  }
+}
+
 .nourish-inner-button-cancel {
   width: 9.125rem;
   height: 3.125rem;

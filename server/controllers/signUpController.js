@@ -2,6 +2,7 @@ const SignUpSchema = require("../models/signUpModel");
 const bcrypt = require("bcrypt");
 const { default: mongoose } = require("mongoose");
 const tokenSchema = require("../models/tokenModel");
+const PostSchema = require("../models/postsModel");
 
 const sendEmail = require("../utilities/sendEmail");
 const crypto = require("crypto");
@@ -34,6 +35,32 @@ const signUp = async (req, res) => {
             _id: createdUser.id,
             userId: createdUser._id,
             token: crypto.randomBytes(32).toString("hex"),
+          },
+          async (err, createdToken) => {
+            if (err) {
+              console.log(err);
+            } else {
+              console.log(createdToken);
+              const url = `${process.env.CLIENT}confirm/${createdToken.userId}/verify/${createdToken.token}`;
+              console.log("URL: " + url);
+              await sendEmail(createdUser, url);
+              // res.status(201).send({
+              //   message: "An Email sent to your account please verify",
+              // });
+            }
+          }
+        );
+        PostSchema.create(
+          {
+            email: createdUser.id,
+            dailies: {
+              nourish: {},
+              sleep: {},
+              training: {},
+            },
+            weeklies: {
+              gratitude: {},
+            },
           },
           async (err, createdToken) => {
             if (err) {

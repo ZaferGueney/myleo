@@ -12,9 +12,13 @@ function BleibDran(props) {
           Hast du dich heute clean ernährt?
         </h3> */}
         <p className="bleibdran-inner-text">
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Consequuntur,
-          facilis? Aspernatur qui, voluptatum perspiciatis dicta libero illum
-          laborum ad culpa!
+          Habit nocht nicht oder gar nicht erledigt? Kein Problem! Bei der
+          Schweinehund Challenge geht es nicht um Perfektion sondern
+          Kontinuität. <br /> <br />
+          Bleib einfach dran und versuche Dich an folgendes Motto zu halten:
+          NEVER MISS TWICE!
+          <br /> <br /> Du brauchst nochmal ein paar Infos und Tipps rund um die
+          Habits und Regeln? Dann schau Dich in unserer Library um:
         </p>
         <button
           className="bleibdran-inner-button-agree agree-button"

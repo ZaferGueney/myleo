@@ -4,6 +4,7 @@ import { Routes, Route, Navigate, Router } from "react-router-dom";
 import HomeView from "./Views/HomeView/HomeView";
 import Register from "./Components/Register/Register";
 import Login from "./Components/Login/Login";
+import Countdown from "./Components/Countdown/Countdown";
 
 // import Events from "./Components/Events/Events";
 // import AdminLoginView from "./Components/Views/AdminLoginView/AdminLoginView";
@@ -38,7 +39,11 @@ const MyRoutes = () => {
   return (
     <Routes>
       <Route path="/register" element={<Register />} exact />
-      {/* <Route path="/" element={} exact /> */}
+      <Route
+        path="/"
+        element={<Countdown countdownTimestampMs={1667602800000} />}
+        exact
+      />
       <Route
         path="/home"
         element={
