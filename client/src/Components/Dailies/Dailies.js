@@ -101,7 +101,6 @@ function Dailies() {
               res = res[habit][days];
 
               if (res > 0) {
-                console.log(habit + " INCLUDES " + res);
                 document
                   .querySelector(".dailies-app-" + habit)
                   .classList.add("app-is-check");

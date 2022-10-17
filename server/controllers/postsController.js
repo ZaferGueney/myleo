@@ -48,7 +48,8 @@ const getDailies = async (req, res) => {
     // console.log(user);
 
     if (user) {
-      console.log(user);
+      console.log("USER FOUND!");
+
       res.status(200).json({
         user,
       });
