@@ -65,7 +65,7 @@ function Gratitude(props) {
       )
       .then((response) => {
         props.setDailiesData(response.data.user);
-
+        console.log(response.data.user);
         // console.log(response.data.user);
       });
   };
@@ -83,6 +83,7 @@ function Gratitude(props) {
       ...existingValues,
 
       second: e.target.value,
+      time: Date.now(),
     }));
   };
 
