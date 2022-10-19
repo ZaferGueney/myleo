@@ -100,7 +100,7 @@ function Dailies() {
             if (res[habit] != undefined) {
               res = res[habit][days];
 
-              if (res > 0) {
+              if (res) {
                 document
                   .querySelector(".dailies-app-" + habit)
                   .classList.add("app-is-check");

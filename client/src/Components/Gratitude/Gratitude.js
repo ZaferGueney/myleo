@@ -35,22 +35,22 @@ function Gratitude(props) {
     props.setGratitudePop(false);
     props.setCheckMadeGratitude(true);
 
-    axios
-      .post(
-        "http://localhost:5000/posts/add/dailies",
-        {
-          email: props.currentUser,
-          day: props.currentDay,
-          points: 2,
-          daily: "gratitude",
-        }
-        // { responseType: "blob" }
-      )
-      .then((response) => {
-        props.setDailiesData(response.data.user);
+    // axios
+    //   .post(
+    //     "http://localhost:5000/posts/add/dailies",
+    //     {
+    //       email: props.currentUser,
+    //       day: props.currentDay,
+    //       points: 2,
+    //       daily: "gratitude",
+    //     }
+    //     // { responseType: "blob" }
+    //   )
+    //   .then((response) => {
+    //     props.setDailiesData(response.data.user);
 
-        // console.log(response.data.user);
-      });
+    //     // console.log(response.data.user);
+    //   });
 
     axios
       .post(
