@@ -31,7 +31,7 @@ $brown: #d3d3d3;
   height: 100vh;
   border: 2px solid black;
   display: grid;
-  grid-template-columns: repeat(8, minmax(min-content, max-content));
+  grid-template-columns: repeat(10, minmax(min-content, max-content));
   gap: 0.5rem;
   justify-content: center;
 
@@ -40,4 +40,5 @@ $brown: #d3d3d3;
 
 .two-numbers {
   width: 2ch;
+  font-weight: 400 !important;
 }

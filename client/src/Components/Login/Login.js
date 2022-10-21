@@ -11,7 +11,7 @@ function Login() {
 
   const handleLogin = (event) => {
     event.preventDefault();
-    console.log("here");
+
     axios
       .post("http://localhost:5000/login/signin", {
         email: username,
@@ -60,7 +60,7 @@ function Login() {
             ></input>
           </div>
 
-          <input type="submit" className="" value="Submit" />
+          <input type="submit" className="login-form-button" value="Submit" />
         </form>
       </div>
     </div>

@@ -10,12 +10,14 @@ class Register extends Component {
       lastname: "",
       email: "",
       password: "",
+      passwordRepeat: "",
     };
 
     this.changeFirstName = this.changeFirstName.bind(this);
     this.changeLastName = this.changeLastName.bind(this);
     this.changeEmail = this.changeEmail.bind(this);
     this.changePassword = this.changePassword.bind(this);
+    this.changePasswordRepeat = this.changePasswordRepeat.bind(this);
     this.onSubmit = this.onSubmit.bind(this);
   }
 
@@ -23,8 +25,6 @@ class Register extends Component {
     this.setState({
       firstname: event.target.value,
     });
-
-    console.log(this.state);
   }
 
   changeLastName(event) {
@@ -45,28 +45,42 @@ class Register extends Component {
     });
   }
 
+  changePasswordRepeat(event) {
+    this.setState({
+      passwordRepeat: event.target.value,
+    });
+  }
+
   onSubmit(event) {
     event.preventDefault();
 
-    const registered = {
-      firstname: this.state.firstname,
-      lastname: this.state.lastname,
-      email: this.state.email,
-      password: this.state.password,
-    };
+    if (this.state.password == this.state.passwordRepeat) {
+      const registered = {
+        firstname: this.state.firstname,
+        lastname: this.state.lastname,
+        email: this.state.email,
+        password: this.state.password,
+        passwordRepeat: this.state.passwordRepeat,
+      };
 
-    axios
-      .post("http://localhost:5000/register/signup", registered)
-      .then((response) => console.log(response.data));
+      axios
+        .post("http://localhost:5000/register/signup", registered)
+        // .then((response) => clg)
+        .then(() => {
+          window.location = "/registered";
+        });
 
-    // window.location = "/";
+      // window.location = "/";
 
-    this.setState({
-      firstname: "",
-      lastname: "",
-      email: "",
-      password: "",
-    });
+      this.setState({
+        firstname: "",
+        lastname: "",
+        email: "",
+        password: "",
+        passwordRepeat: "",
+      });
+    } else {
+    }
   }
 
   render() {
@@ -75,13 +89,12 @@ class Register extends Component {
         <h1 className="register-title">REGISTRIERUNG</h1>
         <h3 className="register-sub">Schön dass du dabei bist!</h3>
         <div className="register-form">
-          <form onSubmit={this.onSubmit}>
+          <form className="register-form-form" onSubmit={this.onSubmit}>
             <div className="register-form-group">
-              <label htmlFor="firstname">Vorname</label>
+              <label htmlFor="firstname">Vorname*</label>
               <input
                 type="text"
                 name="firstname"
-                placeholder="Vorname"
                 onChange={this.changeFirstName}
                 value={this.state.firstname}
                 required
@@ -89,11 +102,10 @@ class Register extends Component {
             </div>
 
             <div className="register-form-group">
-              <label htmlFor="lastname">Nachname</label>
+              <label htmlFor="lastname">Nachname*</label>
               <input
                 type="text"
                 name="lastname"
-                placeholder="Nachname"
                 onChange={this.changeLastName}
                 value={this.state.lastname}
                 required
@@ -101,11 +113,10 @@ class Register extends Component {
             </div>
 
             <div className="register-form-group">
-              <label htmlFor="email">Email</label>
+              <label htmlFor="email">E-Mail Adresse*</label>
               <input
                 type="email"
                 name="email"
-                placeholder="Email"
                 onChange={this.changeEmail}
                 value={this.state.email}
                 required
@@ -113,16 +124,65 @@ class Register extends Component {
             </div>
 
             <div className="register-form-group">
-              <label htmlFor="password">Password</label>
+              <label htmlFor="password">Passwort*</label>
               <input
                 type="password"
                 name="password"
-                placeholder="Password"
                 onChange={this.changePassword}
                 value={this.state.password}
               ></input>
             </div>
+
+            <div className="register-form-group">
+              <label htmlFor="passwordRepeat">Passwort wiederholen*</label>
+              <input
+                type="password"
+                name="passwordRepeat"
+                onChange={this.changePasswordRepeat}
+                value={this.state.passwordRepeat}
+              ></input>
+            </div>
+
+            <div className="register-form-group register-form-checkbox">
+              <label htmlFor="checkbox_first">
+                Aenean mi justo, sagittis vitae enim pulvinar.*
+              </label>
+              <input
+                type="checkbox"
+                name="checkbox_first"
+                // onChange={this.changePasswordRepeat}
+                // value={this.state.passwordRepeat}
+                required
+              ></input>
+            </div>
+
+            <div className="register-form-group register-form-checkbox">
+              <label htmlFor="checkbox_second">
+                Fusce sed volutpat enim. Aenean velit.*
+              </label>
+              <input
+                type="checkbox"
+                name="checkbox_second"
+                // onChange={this.changePasswordRepeat}
+                // value={this.state.passwordRepeat}
+                required
+              ></input>
+            </div>
+
+            <button className="register-form-button" type="submit">
+              JETZT REGISTRIEREN
+            </button>
           </form>
+
+          <div className="register-login">
+            <p className="register-login-text">Du hast schon einen Account?</p>
+            <button
+              onClick={() => (window.location = "/login")}
+              className="register-login-button"
+            >
+              ZUM LOGIN
+            </button>
+          </div>
         </div>
       </div>
     );
@@ -130,76 +190,3 @@ class Register extends Component {
 }
 
 export default Register;
-
-// function Register() {
-//   const [registerData, setRegisterData] = useState({
-//     firstname: "",
-//     lastname: "",
-//     email: "",
-//     password: "",
-//   });
-
-//   function changeFirstName(e) {
-//     setRegisterData({
-//       firstname: e.target.value,
-//     });
-
-//     console.log(e.target.value);
-//     console.log(registerData);
-//   }
-
-//   function changeLastName(e) {
-//     setRegisterData({
-//       lastname: e.target.value,
-//     });
-//   }
-
-//   function changeEmail(e) {
-//     setRegisterData({
-//       email: e.target.value,
-//     });
-//   }
-
-//   function changePassword(event) {
-//     setRegisterData({
-//       password: event.target.value,
-//     });
-//   }
-
-//   return (
-//     <div className="register">
-//       <h1 className="register-title">REGISTRIERUNG</h1>
-//       <h3 className="register-sub">Schön dass du dabei bist!</h3>
-//       <div className="register-form">
-//         <form action="">
-//           <input
-//             type="text"
-//             placeholder="Vorname"
-//             onChange={changeFirstName}
-//             value={registerData.firstname}
-//           ></input>
-//           <input
-//             type="text"
-//             placeholder="Nachname"
-//             onChange={changeLastName}
-//             value={registerData.lastname}
-//           ></input>
-//           <input
-//             type="text"
-//             placeholder="Email"
-//             onChange={changeEmail}
-//             value={registerData.email}
-//           ></input>
-//           <input
-//             type="text"
-//             placeholder="Password"
-//             onChange={changePassword}
-//             value={registerData.password}
-//           ></input>
-
-//           <input type="submit" className="" value="Submit" />
-//         </form>
-//       </div>
-//     </div>
-//   );
-// }

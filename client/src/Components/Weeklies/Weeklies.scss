@@ -119,3 +119,10 @@ $dark: #1b1b1b;
   animation: progress 1s ease-out forwards;
   z-index: 4;
 }
+.app-is-check {
+  background-color: $green;
+}
+
+.check-is-check {
+  display: block;
+}

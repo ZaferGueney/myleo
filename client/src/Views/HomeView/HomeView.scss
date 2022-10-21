@@ -28,12 +28,14 @@ $dark: #1b1b1b;
 .homeview {
   // background: linear-gradient(180deg, #f8faec 33.46%, #abad9f 73.99%);
   padding-bottom: 3.5rem;
+  display: grid;
   &-score {
     display: grid;
     grid-template-rows: repeat(2, minmax(min-content, max-content));
     // grid-template-columns: repeat(2, minmax(min-content, max-content));
     grid-gap: 1rem;
     justify-content: center;
+    padding-top: 0.5rem;
 
     @include mq(welldone) {
       position: absolute;
@@ -60,9 +62,13 @@ $dark: #1b1b1b;
     @include mq(welldone) {
       margin-top: 2rem;
       display: grid;
-      grid-template-columns: repeat(3, minmax(min-content, max-content));
-      grid-gap: 1rem;
+      grid-template-columns: repeat(3, 1fr);
+      grid-gap: rem;
       padding: 1rem;
+      justify-content: center;
+      justify-items: center;
+      justify-self: center;
+      width: 100%;
     }
   }
 

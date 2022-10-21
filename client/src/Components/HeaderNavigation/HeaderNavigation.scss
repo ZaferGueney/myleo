@@ -36,7 +36,6 @@ $dark: #1b1b1b;
   justify-items: center;
   align-items: center;
   height: 7rem;
-  margin-bottom: 1.5rem;
 
   @include mq(welldone) {
     grid-template-rows: repeat(3, minmax(min-content, max-content));

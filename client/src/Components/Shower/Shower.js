@@ -3,6 +3,11 @@ import React, { useEffect } from "react";
 import shower from "../Dailies/img/shower.svg";
 import reset from "../Dailies/img/reset.svg";
 
+import Workshop from "../Workshop/Workshop";
+// import Action from "../Action/Action";
+// import Nature from "../Nature/Nature";
+// import Reflection from "../Reflection/Reflection";
+
 import axios from "axios";
 import "./Shower.scss";
 
@@ -44,8 +49,7 @@ function Shower(props) {
       )
       .then((response) => {
         props.setDailiesData(response.data.user);
-
-        // console.log(response.data.user);
+        props.setReload(!props.reload);
       });
   };
 
@@ -73,6 +77,7 @@ function Shower(props) {
       .then((response) => {
         props.setDailiesData(response.data.user);
         props.setCheckMadeShower(false);
+        props.setReload(!props.reload);
       });
   };
 

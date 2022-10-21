@@ -13,6 +13,8 @@ const signUp = async (req, res) => {
   const saltPassword = await bcrypt.genSalt(10);
   const securePassword = await bcrypt.hash(password, saltPassword);
 
+  console.log(req.body);
+
   SignUpSchema.create(
     {
       _id: email,
@@ -24,11 +26,9 @@ const signUp = async (req, res) => {
     },
     async (err, createdUser) => {
       if (err) {
-        console.log(err);
         res.status(400).send("Error entering data into the db!");
       } else {
-        console.log(createdUser);
-        res.status(200).send("Successfully entering into the db!");
+        // res.status(200).send("Successfully entering into the db!");
 
         tokenSchema.create(
           {
@@ -38,15 +38,12 @@ const signUp = async (req, res) => {
           },
           async (err, createdToken) => {
             if (err) {
-              console.log(err);
             } else {
-              console.log(createdToken);
               const url = `${process.env.CLIENT}confirm/${createdToken.userId}/verify/${createdToken.token}`;
-              console.log("URL: " + url);
               await sendEmail(createdUser, url);
-              // res.status(201).send({
-              //   message: "An Email sent to your account please verify",
-              // });
+              res.status(201).send({
+                message: "An Email sent to your account please verify",
+              });
             }
           }
         );
@@ -61,20 +58,18 @@ const signUp = async (req, res) => {
             weeklies: {
               gratitude: {},
             },
-          },
-          async (err, createdToken) => {
-            if (err) {
-              console.log(err);
-            } else {
-              console.log(createdToken);
-              const url = `${process.env.CLIENT}confirm/${createdToken.userId}/verify/${createdToken.token}`;
-              console.log("URL: " + url);
-              await sendEmail(createdUser, url);
-              // res.status(201).send({
-              //   message: "An Email sent to your account please verify",
-              // });
-            }
           }
+          // async (err, createdToken) => {
+          //   if (err) {
+          //   } else {
+          //     const url = `${process.env.CLIENT}confirm/${createdToken.userId}/verify/${createdToken.token}`;
+
+          //     await sendEmail(createdUser, url);
+          //     // res.status(201).send({
+          //     //   message: "An Email sent to your account please verify",
+          //     // });
+          //   }
+          // }
         );
       }
     }

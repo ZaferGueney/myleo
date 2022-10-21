@@ -1,54 +1,56 @@
 import React, { useEffect, useState } from "react";
 
-import gratitude from "../Dailies/img/gratitude.svg";
+import reflection from "../Weeklies/img/reflection.svg";
 import reset from "../Dailies/img/reset.svg";
 
 import axios from "axios";
-import "./Gratitude.scss";
+import "./Reflection.scss";
 
-function Gratitude(props) {
+function Reflection(props) {
   const [log, setLog] = useState({ first: "", second: "", third: "" });
 
   useEffect(() => {
     if (
       document
-        .querySelector(".dailies-app-check-gratitude")
+        .querySelector(".weeklies-app-check-reflection")
         .classList.contains("check-is-check")
     ) {
-      props.setCheckMadeGratitude(true);
+      props.setCheckMadeReflection(true);
     }
-  }, [props.checkMadeGratitude]);
+  }, [props.checkMadeReflection]);
 
   const handleBleibDran = () => {
-    props.setGratitudePop(false);
+    props.setReflectionPop(false);
     props.setBleibDran(true);
   };
 
   const handleAgree = () => {
     document
-      .querySelector(".dailies-app-gratitude")
+      .querySelector(".weeklies-app-reflection")
       .classList.add("app-is-check");
     document
-      .querySelector(".dailies-app-check-gratitude")
+      .querySelector(".weeklies-app-check-reflection")
       .classList.add("check-is-check");
 
-    props.setGratitudePop(false);
-    props.setCheckMadeGratitude(true);
+    props.setReflectionPop(false);
+    props.setCheckMadeReflection(true);
 
     axios
       .post(
-        "http://localhost:5000/posts/add/gratitude-log",
+        "http://localhost:5000/posts/add/reflection-log",
         {
           email: props.currentUser,
-          day: props.currentDay,
+          week: props.currentWeek,
           log: log,
-          daily: "gratitude",
+          weeklie: "reflection",
         }
         // { responseType: "blob" }
       )
       .then((response) => {
-        props.setDailiesData(response.data.user);
-        props.setReload(!props.reload);
+        props.setWeekliesData(response.data.user);
+        console.log(response.data.user);
+
+        props.setReloadLeaderboard(!props.reloadLeaderboard);
       });
   };
 
@@ -65,7 +67,6 @@ function Gratitude(props) {
       ...existingValues,
 
       second: e.target.value,
-      time: Date.now(),
     }));
   };
 
@@ -74,50 +75,57 @@ function Gratitude(props) {
       ...existingValues,
 
       third: e.target.value,
+      time: Date.now(),
     }));
   };
 
   const handleReset = () => {
     document
-      .querySelector(".dailies-app-gratitude")
+      .querySelector(".weeklies-app-reflection")
       .classList.remove("app-is-check");
     document
-      .querySelector(".dailies-app-check-gratitude")
+      .querySelector(".weeklies-app-check-reflection")
       .classList.remove("check-is-check");
 
-    props.setGratitudePop(false);
+    props.setReflectionPop(false);
 
     axios
       .post(
-        "http://localhost:5000/posts/add/gratitude-log",
+        "http://localhost:5000/posts/add/reflection-log",
         {
           email: props.currentUser,
-          day: props.currentDay,
+          week: props.currentWeek,
           log: 0,
-          daily: "gratitude",
+          weeklie: "reflection",
         }
         // { responseType: "blob" }
       )
       .then((response) => {
-        props.setDailiesData(response.data.user);
-        props.setCheckMadeGratitude(false);
-        props.setReload(!props.reload);
+        props.setWeekliesData(response.data.user);
+        props.setCheckMadeReflection(false);
+        console.log(response.data.user);
+
+        props.setReloadLeaderboard(!props.reloadLeaderboard);
       });
   };
 
   return props.trigger ? (
-    <div className="gratitude">
-      {!props.checkMadeGratitude ? (
-        <div className="gratitude-inner">
-          <img src={gratitude} alt="" className="gratitude-inner-image" />
-          <h1 className="gratitude-inner-title">DANKBARKEIT</h1>
-          <h3 className="gratitude-inner-sub">Wofür bist Du heute dankbar?</h3>
-          <p className="gratitude-inner-text">
+    <div className="reflection">
+      {!props.checkMadeReflection ? (
+        <div className="reflection-inner">
+          <img src={reflection} alt="" className="reflection-inner-image" />
+          <h1 className="reflection-inner-title">SELBSTREFLEXION</h1>
+          <h3 className="reflection-inner-sub">Wofür bist Du heute dankbar?</h3>
+          <p className="reflection-inner-text">
             Notiere 3 Dinge, für die Du dankbar bist und Du erhältst 2 Punkte.
           </p>
-          <form className="gratitude-inner-form" onSubmit={handleAgree}>
-            <div className="gratitude-inner-form-group ">
+          <form className="reflection-inner-form" onSubmit={handleAgree}>
+            <div className="reflection-inner-form-group ">
+              <label htmlFor="first">
+                Was würdest Du in Deinem Leben anders machen?
+              </label>
               <input
+                name="first"
                 className="first"
                 type="text"
                 onChange={(e) => firstFunc(e)}
@@ -125,7 +133,8 @@ function Gratitude(props) {
                 required
               ></input>
             </div>
-            <div className="gratitude-inner-form-group">
+            <div className="reflection-inner-form-group">
+              <label htmlFor="first">Bist Du heute glücklich?</label>
               <input
                 className="second"
                 type="text"
@@ -134,7 +143,10 @@ function Gratitude(props) {
                 required
               ></input>
             </div>
-            <div className="gratitude-inner-form-group ">
+            <div className="reflection-inner-form-group ">
+              <label htmlFor="first">
+                Was ist Dir das wichtigste Ziel für die Zukunft?
+              </label>
               <input
                 className="third"
                 type="text"
@@ -144,7 +156,7 @@ function Gratitude(props) {
               ></input>
             </div>
             <input
-              className="gratitude-inner-button-agree agree-button"
+              className="reflection-inner-button-agree agree-button"
               // onClick={handleAgree}
               type="submit"
               value="FERTIG"
@@ -152,36 +164,36 @@ function Gratitude(props) {
           </form>
 
           <button
-            className="gratitude-inner-button-cancel cancel-button"
+            className="reflection-inner-button-cancel cancel-button"
             onClick={handleBleibDran}
           >
             Abbrechen
           </button>
         </div>
       ) : (
-        <div className="gratitude-inner">
+        <div className="reflection-inner">
           <img
             src={reset}
             alt=""
-            className="gratitude-inner-image reset-image"
+            className="reflection-inner-image reset-image"
           />
-          <h1 className="gratitude-inner-title">PUNKTE WIDERRUFEN</h1>
-          <h3 className="gratitude-inner-sub">
+          <h1 className="reflection-inner-title">PUNKTE WIDERRUFEN</h1>
+          <h3 className="reflection-inner-sub">
             Hier kannst du deine Punkte zurücksetzen.
           </h3>
-          <p className="gratitude-inner-text">
+          <p className="reflection-inner-text">
             Klicke auf den Button wenn du deine Antwort neu eingeben möchtest.
           </p>
           <button
-            className="gratitude-inner-button-agree agree-button"
+            className="reflection-inner-button-agree agree-button"
             onClick={handleReset}
           >
             PUNKTE WIDERRUFEN
           </button>
 
           <button
-            className="gratitude-inner-button-cancel cancel-button"
-            onClick={() => props.setGratitudePop(false)}
+            className="reflection-inner-button-cancel cancel-button"
+            onClick={() => props.setReflectionPop(false)}
           >
             Abbrechen
           </button>
@@ -194,4 +206,4 @@ function Gratitude(props) {
   );
 }
 
-export default Gratitude;
+export default Reflection;

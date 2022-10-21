@@ -16,25 +16,18 @@ import Sleep from "../Sleep/Sleep";
 import Shower from "../Shower/Shower";
 import Breath from "../Breath/Breath";
 import Gratitude from "../Gratitude/Gratitude";
-// import Workshop from "../Workshop/Workshop";
-// import Action from "../Action/Action";
-// import Nature from "../Nature/Nature";
-// import Reflection from "../Reflection/Reflection";
 
 import BleibDran from "../BleibDran/BleibDran";
 import Erfolg from "../Erfolg/Erfolg";
+import CountdownHome from "../Countdown/CountdownHome";
 
-function Dailies() {
+function Dailies(props) {
   const [nourishPop, setNourishPop] = useState(false);
   const [trainingPop, setTrainingPop] = useState(false);
   const [sleepPop, setSleepPop] = useState(false);
   const [showerPop, setShowerPop] = useState(false);
   const [breathPop, setBreathPop] = useState(false);
   const [gratitudePop, setGratitudePop] = useState(false);
-  const [workshopPop, setWorkshopPop] = useState(false);
-  const [actionPop, setActionPop] = useState(false);
-  const [naturePop, setNaturePop] = useState(false);
-  const [reflectionPop, setReflectionPop] = useState(false);
 
   const [bleibDran, setBleibDran] = useState(false);
   const [erfolg, setErfolg] = useState(false);
@@ -49,10 +42,6 @@ function Dailies() {
 
   const [checkMadeBreath, setCheckMadeBreath] = useState(false);
   const [checkMadeGratitude, setCheckMadeGratitude] = useState(false);
-  // const [checkMadeWorkshop, setCheckMadeWorkshop] = useState(false);
-  // const [checkMadeAction, setCheckMadeAction] = useState(false);
-  // const [checkMadeNature, setCheckMadeNature] = useState(false);
-  // const [checkMadeReflection, setCheckMadeReflection] = useState(false);
 
   useEffect(() => {
     const login = JSON.parse(localStorage.getItem("currentUser"));
@@ -63,10 +52,6 @@ function Dailies() {
       "shower",
       "breath",
       "gratitude",
-      // "workshop",
-      // "action",
-      // "nature",
-      // "reflection",
     ];
 
     setCurrentUser(login.email);
@@ -75,13 +60,9 @@ function Dailies() {
     setCurrentDay(days);
 
     axios
-      .post(
-        "http://localhost:5000/posts/get/dailies",
-        {
-          email: login.email,
-        }
-        // { responseType: "blob" }
-      )
+      .post("http://localhost:5000/posts/get/dailies", {
+        email: login.email,
+      })
       .then((response) => {
         setDailiesData(response.data.user);
 
@@ -90,9 +71,6 @@ function Dailies() {
 
         for (let a = 0; a <= currentHabit.length - 1; a++) {
           habit = currentHabit[a];
-
-          // console.log(habit);
-          // console.log(response.data.user.dailies);
 
           if (response.data.user.dailies != undefined) {
             res = response.data.user.dailies;
@@ -109,7 +87,6 @@ function Dailies() {
                   .querySelector(".dailies-app-check-" + habit)
                   .classList.add("check-is-check");
 
-                // setCheckMadeNourish(true);
                 if (habit == "nourish") {
                   setCheckMadeNourish(true);
                 } else if (habit == "training") {
@@ -122,22 +99,12 @@ function Dailies() {
                   setCheckMadeBreath(true);
                 } else if (habit == "gratitude") {
                   setCheckMadeGratitude(true);
-                  // } else if (habit == "workshop") {
-                  //   setCheckMadeWorkshop(true);
-                  // } else if (habit == "action") {
-                  //   setCheckMadeAction(true);
-                  // } else if (habit == "nature") {
-                  //   setCheckMadeNature(true);
-                  // } else if (habit == "reflection") {
-                  //   setCheckMadeReflection(true);
                 } else {
                 }
               }
             } else {
-              console.log(habit + "- NOT HERE");
             }
           } else {
-            console.log("NO DAILIES IN SET!");
           }
         }
       });
@@ -158,6 +125,8 @@ function Dailies() {
         setCurrentUser={setCurrentUser}
         setCheckMadeNourish={setCheckMadeNourish}
         checkMadeNourish={checkMadeNourish}
+        reload={props.reload}
+        setReload={props.setReload}
       />
       <Training
         trigger={trainingPop}
@@ -172,6 +141,8 @@ function Dailies() {
         setCurrentUser={setCurrentUser}
         setCheckMadeTraining={setCheckMadeTraining}
         checkMadeTraining={checkMadeTraining}
+        reload={props.reload}
+        setReload={props.setReload}
       />
       <Sleep
         trigger={sleepPop}
@@ -186,6 +157,8 @@ function Dailies() {
         setCurrentUser={setCurrentUser}
         setCheckMadeSleep={setCheckMadeSleep}
         checkMadeSleep={checkMadeSleep}
+        reload={props.reload}
+        setReload={props.setReload}
       />
       <Shower
         trigger={showerPop}
@@ -200,6 +173,8 @@ function Dailies() {
         setCurrentUser={setCurrentUser}
         setCheckMadeShower={setCheckMadeShower}
         checkMadeShower={checkMadeShower}
+        reload={props.reload}
+        setReload={props.setReload}
       />
       <Breath
         trigger={breathPop}
@@ -214,6 +189,8 @@ function Dailies() {
         setCurrentUser={setCurrentUser}
         setCheckMadeBreath={setCheckMadeBreath}
         checkMadeBreath={checkMadeBreath}
+        reload={props.reload}
+        setReload={props.setReload}
       />
       <Gratitude
         trigger={gratitudePop}
@@ -228,72 +205,18 @@ function Dailies() {
         setCurrentUser={setCurrentUser}
         setCheckMadeGratitude={setCheckMadeGratitude}
         checkMadeGratitude={checkMadeGratitude}
+        reload={props.reload}
+        setReload={props.setReload}
       />
-      {/* <Workshop
-        trigger={workshopPop}
-        setWorkshopPop={setWorkshopPop}
-        triggerBleibDran={bleibDran}
-        setBleibDran={setBleibDran}
-        currentDay={currentDay}
-        setCurrentDay={setCurrentDay}
-        dailiesData={dailiesData}
-        setDailiesData={setDailiesData}
-        currentUser={currentUser}
-        setCurrentUser={setCurrentUser}
-        setCheckMadeWorkshop={setCheckMadeWorkshop}
-        checkMadeWorkshop={checkMadeWorkshop}
-      /> */}
-
-      {/* <Action
-        trigger={actionPop}
-        setActionPop={setActionPop}
-        triggerBleibDran={bleibDran}
-        setBleibDran={setBleibDran}
-        currentDay={currentDay}
-        setCurrentDay={setCurrentDay}
-        dailiesData={dailiesData}
-        setDailiesData={setDailiesData}
-        currentUser={currentUser}
-        setCurrentUser={setCurrentUser}
-        setCheckMadeAction={setCheckMadeAction}
-        checkMadeAction={checkMadeAction}
-      /> */}
-
-      {/* <Nature
-        trigger={naturePop}
-        setNaturePop={setNaturePop}
-        triggerBleibDran={bleibDran}
-        setBleibDran={setBleibDran}
-        currentDay={currentDay}
-        setCurrentDay={setCurrentDay}
-        dailiesData={dailiesData}
-        setDailiesData={setDailiesData}
-        currentUser={currentUser}
-        setCurrentUser={setCurrentUser}
-        setCheckMadeNature={setCheckMadeNature}
-        checkMadeNature={checkMadeNature}
-      /> */}
-
-      {/* <Reflection
-        trigger={reflectionPop}
-        setReflectionPop={setReflectionPop}
-        triggerBleibDran={bleibDran}
-        setBleibDran={setBleibDran}
-        currentDay={currentDay}
-        setCurrentDay={setCurrentDay}
-        dailiesData={dailiesData}
-        setDailiesData={setDailiesData}
-        currentUser={currentUser}
-        setCurrentUser={setCurrentUser}
-        setCheckMadeReflection={setCheckMadeReflection}
-        checkMadeReflection={checkMadeReflection}
-      /> */}
 
       <BleibDran triggerBleibDran={bleibDran} setBleibDran={setBleibDran} />
       <Erfolg triggerErfolg={erfolg} setErfolg={setErfolg} />
       <h2 className="dailies-title">HABIT TRACKING</h2>
       <div className="dailies-tracking">
-        <p className="dailies-tracking-time">15:30:17</p>
+        <CountdownHome
+          className="dailies-tracking-time"
+          countdownTimestampMs={1668790800000}
+        ></CountdownHome>
         <p className="dailies-tracking-text">LEFT TO TRACK YOUR</p>
         <p className="dailies-tracking-title">DAILIES</p>
       </div>

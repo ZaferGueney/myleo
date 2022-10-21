@@ -4,8 +4,9 @@ import axios from "axios";
 import "./GratitudeLog.scss";
 import gratitude from "./img/gratitude.svg";
 import date from "./img/date.svg";
+import { getAfterTimeUntilMsTimestamp } from "../Countdown/Utils/CountdownTimerAfter";
 
-function GratitudeLog() {
+function GratitudeLog(props) {
   const [fetchedGratitude, setFetchedGratitude] = useState([]);
   useEffect(() => {
     const login = JSON.parse(localStorage.getItem("currentUser"));
@@ -19,38 +20,27 @@ function GratitudeLog() {
         // { responseType: "blob" }
       )
       .then((response) => {
-        handleObject(response.data.user.dailies.gratitude);
-        // setFetchedGratitude(response.data.user.dailies.gratitude);
+        if (response.data.user.hasOwnProperty("dailies")) {
+          if (response.data.user.dailies.hasOwnProperty("gratitude")) {
+            if (response.data.user.dailies.gratitude) {
+              handleObject(response.data.user.dailies.gratitude);
+            }
+          }
+        }
       });
-  }, []);
+  }, [props.reload]);
 
   const handleObject = (e) => {
     let gratitudeArray = [];
     for (const [key, value] of Object.entries(e)) {
-      // console.log(e);
-      // for (const [key2, value2] of Object.entries(value)) {
-      // console.log(key2);
-      // console.log(value2);
-      gratitudeArray.push(value);
-
-      // console.log(gratitudeArray);
-      // console.log(gratitudeArray);
-      // }
+      if (value) {
+        gratitudeArray.push(value);
+      }
     }
 
     setFetchedGratitude(gratitudeArray);
-
-    // fetchedGratitude.forEach((element) => {
-    //   console.log(element);
-    // });
-
-    for (let index = 0; index < fetchedGratitude.length; index++) {
-      console.log("index");
-      console.log(fetchedGratitude[index]);
-    }
   };
 
-  console.log(fetchedGratitude);
   return (
     <div className="gratitudelog">
       <div className="gratitudelog-header">
@@ -58,11 +48,10 @@ function GratitudeLog() {
         <h2 className="gratitudelog-header-title">Wofür du dankbar bist</h2>
       </div>
 
-      <div className="gratitudelog-log">
-        {fetchedGratitude.length ? (
-          <div>
-            {" "}
-            {fetchedGratitude.forEach((item) => {
+      {fetchedGratitude.length ? (
+        <div className="gratitudelog-log">
+          {fetchedGratitude.map((item) => (
+            <div key={item.time}>
               <div className="gratitudelog-log-single">
                 <img
                   src={date}
@@ -70,34 +59,41 @@ function GratitudeLog() {
                   className="gratitudelog-log-single-image"
                 />
                 <div className="gratitudelog-log-single-title">
-                  vor 20 Minuten
+                  vor {getAfterTimeUntilMsTimestamp(item.time).minutes} Minuten
                 </div>
-                <p className="gratitudelog-log-single-text">
-                  Lorem ipsum dolor sit amet consectetur adipisicing elit. Esse,
-                  consectetur.
-                </p>
-              </div>;
-            })}
-          </div>
-        ) : (
-          ""
-        )}
-
-        {/* <div className="gratitudelog-log-single">
-          <img src={date} alt="" className="gratitudelog-log-single-image" />
-          <div className="gratitudelog-log-single-title">vor 20 Minuten</div>
-          <p className="gratitudelog-log-single-text">
-            Lorem ipsum dolor sit amet consectetur.
-          </p>
+                <p className="gratitudelog-log-single-text">{item.first}</p>
+              </div>
+              <div className="gratitudelog-log-single">
+                <img
+                  src={date}
+                  alt=""
+                  className="gratitudelog-log-single-image"
+                />
+                <div className="gratitudelog-log-single-title">
+                  vor {getAfterTimeUntilMsTimestamp(item.time).minutes} Minuten
+                </div>
+                <p className="gratitudelog-log-single-text">{item.second}</p>
+              </div>
+              <div className="gratitudelog-log-single">
+                <img
+                  src={date}
+                  alt=""
+                  className="gratitudelog-log-single-image"
+                />
+                <div className="gratitudelog-log-single-title">
+                  vor {getAfterTimeUntilMsTimestamp(item.time).minutes} Minuten
+                </div>
+                <p className="gratitudelog-log-single-text">{item.third}</p>
+              </div>
+            </div>
+          ))}
         </div>
-        <div className="gratitudelog-log-single">
-          <img src={date} alt="" className="gratitudelog-log-single-image" />
-          <div className="gratitudelog-log-single-title">vor 20 Minuten</div>
-          <p className="gratitudelog-log-single-text">
-            Lorem ipsum dolor sit amet consectetur.
-          </p>
-        </div> */}
-      </div>
+      ) : (
+        <div>
+          <p className="gratitudelog-empty">Du hast noch keine Einträge.</p>
+        </div>
+      )}
+
       <button className="gratitudelog-button">ALLE EINTRÄGE ANSEHEN</button>
     </div>
   );

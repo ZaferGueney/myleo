@@ -45,8 +45,7 @@ function Training(props) {
       )
       .then((response) => {
         props.setDailiesData(response.data.user);
-
-        // console.log(response.data.user);
+        props.setReload(!props.reload);
       });
   };
 
@@ -74,6 +73,7 @@ function Training(props) {
       .then((response) => {
         props.setDailiesData(response.data.user);
         props.setCheckMadeTraining(false);
+        props.setReload(!props.reload);
       });
   };
 

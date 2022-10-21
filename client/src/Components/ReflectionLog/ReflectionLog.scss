@@ -26,14 +26,19 @@ $pink: #eb4abc;
 $dark: #1b1b1b;
 $brown: #d3d3d3;
 
-.gratitudelog {
+.reflectionlog {
   display: grid;
   justify-content: center;
-  width: 20rem;
+  margin-top: 3rem;
   justify-content: stretch;
 
   @include mq(welldone) {
+    margin-top: 0rem;
     width: 20rem;
+  }
+
+  @include mq(welldone) {
+    padding: 0;
   }
 
   &-header {
@@ -55,7 +60,6 @@ $brown: #d3d3d3;
     margin-top: 1rem;
     height: 15rem;
     width: 100%;
-
     overflow: scroll;
 
     &-single {
@@ -95,6 +99,7 @@ $brown: #d3d3d3;
     font-weight: 800;
     font-size: 0.9rem;
   }
+
   &-empty {
     font-size: 0.75rem;
     text-align: center;

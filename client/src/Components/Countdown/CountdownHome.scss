@@ -24,22 +24,12 @@ $breakpoints: (
 $green: #cbf73f;
 $pink: #eb4abc;
 $dark: #1b1b1b;
+$brown: #d3d3d3;
 
-.blog {
-  display: grid;
-  justify-content: center;
-  padding-top: 2rem;
-  padding-bottom: 3rem;
-  align-self: center;
-  justify-self: center;
+.countdown-home {
+}
 
-  @include mq(welldone) {
-    padding: 0;
-  }
-
-  &-image {
-    @include mq(welldone) {
-      height: 16rem;
-    }
-  }
+.two-numbers-home {
+  width: 2ch;
+  font-weight: 800;
 }

@@ -31,10 +31,6 @@ function Breathing(props) {
       return setTime({ s: 0, m: 0 });
     }
 
-    // if (updatedM === 60) {
-    //   updatedM++;
-    //   updatedS = 0;
-    // }
     if (updatedS === 60) {
       updatedM++;
       updatedS = 0;
@@ -66,8 +62,7 @@ function Breathing(props) {
       )
       .then((response) => {
         props.props.setDailiesData(response.data.user);
-
-        // console.log(response.data.user);
+        props.props.setReload(!props.reload);
       });
   };
 

@@ -6,12 +6,7 @@ import reset from "../Dailies/img/reset.svg";
 import axios from "axios";
 
 function Nourish(props) {
-  // const [checked, setChecked] = useState({});
-
   useEffect(() => {
-    // const login = JSON.parse(localStorage.getItem("currentUser"));
-    // setCurrentUser(login.email);
-
     if (
       document
         .querySelector(".dailies-app-check-nourish")
@@ -19,16 +14,11 @@ function Nourish(props) {
     ) {
       props.setCheckMadeNourish(true);
     }
-    // let countdown = getRemainingTimeUntilMsTimestamp(1667602800000);
-    // let days = "day" + (28 - parseInt(countdown.days, 10));
-    // setCurrentDay(days);
   }, [props.checkMadeNourish]);
 
   const handleBleibDran = () => {
     props.setNourishPop(false);
     props.setBleibDran(true);
-
-    // const login = JSON.parse(localStorage.getItem("currentUser"));
   };
 
   const handleAgree = () => {
@@ -41,7 +31,7 @@ function Nourish(props) {
 
     props.setNourishPop(false);
     props.setCheckMadeNourish(true);
-    // props.setErfolg(true);
+
     axios
       .post(
         "http://localhost:5000/posts/add/dailies",
@@ -55,8 +45,8 @@ function Nourish(props) {
       )
       .then((response) => {
         props.setDailiesData(response.data.user);
-
-        // console.log(response.data.user);
+        props.setReload(!props.reload);
+        // props.setReset(!props.reset);
       });
   };
 
@@ -84,6 +74,7 @@ function Nourish(props) {
       )
       .then((response) => {
         props.setDailiesData(response.data.user);
+        props.setReload(!props.reload);
       });
   };
 
@@ -112,6 +103,7 @@ function Nourish(props) {
       .then((response) => {
         props.setDailiesData(response.data.user);
         props.setCheckMadeNourish(false);
+        props.setReload(!props.reload);
       });
   };
 

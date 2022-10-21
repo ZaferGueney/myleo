@@ -18,6 +18,10 @@ const PostSchema = mongoose.Schema(
       type: Object,
       default: {},
     },
+    leaderboard: {
+      type: Number,
+      default: 0,
+    },
     date: {
       type: Date,
       default: Date.now,

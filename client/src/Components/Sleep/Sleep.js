@@ -43,8 +43,7 @@ function Sleep(props) {
       )
       .then((response) => {
         props.setDailiesData(response.data.user);
-
-        // console.log(response.data.user);
+        props.setReload(!props.reload);
       });
   };
 
@@ -72,6 +71,7 @@ function Sleep(props) {
       .then((response) => {
         props.setDailiesData(response.data.user);
         props.setCheckMadeSleep(false);
+        props.setReload(!props.reload);
       });
   };
 

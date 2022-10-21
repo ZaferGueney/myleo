@@ -1,16 +1,14 @@
 import { useEffect, useState } from "react";
-import "./Countdown.scss";
+import "./CountdownHome.scss";
 import { getRemainingTimeUntilMsTimestamp } from "./Utils/CountdownTimer";
 
 const defaultRemainingTime = {
   seconds: "00",
   minutes: "00",
   hours: "00",
-  days: "00",
-  weeks: "00",
 };
 
-const Countdown = ({ countdownTimestampMs }) => {
+const CountdownHome = ({ countdownTimestampMs }) => {
   const [remainmingTime, setRemainingTime] = useState(defaultRemainingTime);
 
   useEffect(() => {
@@ -25,19 +23,14 @@ const Countdown = ({ countdownTimestampMs }) => {
   }
 
   return (
-    <div className="countdown">
-      <span id="weeks">{remainmingTime.weeks}</span>
-      <span>Weeks</span>
-      <span id="days">{remainmingTime.days}</span>
-      <span>days</span>
-      <span className="two-numbers">{remainmingTime.hours}</span>
-      <span>hours</span>
-      <span className="two-numbers">{remainmingTime.minutes}</span>
-      <span>minutes</span>
-      <span className="two-numbers">{remainmingTime.seconds}</span>
-      <span>seconds</span>
+    <div className="countdown-home">
+      <span className="two-numbers-home">{remainmingTime.hours}</span>
+      <span>:</span>
+      <span className="two-numbers-home">{remainmingTime.minutes}</span>
+      <span>:</span>
+      <span className="two-numbers-home">{remainmingTime.seconds}</span>
     </div>
   );
 };
 
-export default Countdown;
+export default CountdownHome;

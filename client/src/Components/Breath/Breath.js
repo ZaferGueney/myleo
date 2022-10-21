@@ -9,6 +9,7 @@ import "./Breath.scss";
 
 function Breath(props) {
   const [breathing, setBreathing] = useState(false);
+
   useEffect(() => {
     if (
       document
@@ -25,27 +26,6 @@ function Breath(props) {
   };
 
   const handleAgree = () => {
-    // document.querySelector(".dailies-app-breath").classList.add("app-is-check");
-    // document
-    //   .querySelector(".dailies-app-check-breath")
-    //   .classList.add("check-is-check");
-    // props.setBreathPop(false);
-    // props.setCheckMadeBreath(true);
-    // axios
-    //   .post(
-    //     "http://localhost:5000/posts/add/dailies",
-    //     {
-    //       email: props.currentUser,
-    //       day: props.currentDay,
-    //       points: 2,
-    //       daily: "breath",
-    //     }
-    //     // { responseType: "blob" }
-    //   )
-    //   .then((response) => {
-    //     props.setDailiesData(response.data.user);
-    //     // console.log(response.data.user);
-    //   });
     setBreathing(true);
   };
   const handleDone = () => {
@@ -56,7 +36,7 @@ function Breath(props) {
 
     props.setBreathPop(false);
     props.setCheckMadeBreath(true);
-    // props.setErfolg(true);
+
     axios
       .post(
         "http://localhost:5000/posts/add/dailies",
@@ -70,6 +50,7 @@ function Breath(props) {
       )
       .then((response) => {
         props.setDailiesData(response.data.user);
+        props.setReload(!props.reload);
       });
   };
 
@@ -98,6 +79,7 @@ function Breath(props) {
       .then((response) => {
         props.setDailiesData(response.data.user);
         props.setCheckMadeBreath(false);
+        props.setReload(!props.reload);
       });
   };
 

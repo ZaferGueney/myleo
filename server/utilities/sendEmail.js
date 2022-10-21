@@ -16,9 +16,16 @@ module.exports = async (createdToken, token) => {
       from: '"Schweinehund-Challenge" <mail@schweinehundchallenge.de>', // sender address
       to: createdToken.email, // list of receivers
 
-      subject: "White Chocolate - Ticket/s", // Subject line
+      subject: "Schweinehund-Challgen - Bestätige Deine Email", // Subject line
       text: "", // plain text body
-      html: `<div><h1>LINK ${token}</h1><div>`,
+      html: `<div>
+      </br>
+      </br>
+
+      <p>Klicke auf folgenden Link um deine Anmeldung zu bestätigen.</p>
+      <a href="${token}">BESTÄTIGEN!</a>
+
+      <div>`,
     });
     console.log("Email erfolgreich verschickt.");
   } catch (error) {

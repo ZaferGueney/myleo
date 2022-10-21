@@ -23,10 +23,8 @@ const signUp = async (req, res) => {
     },
     async (err, createdUser) => {
       if (err) {
-        console.log(err);
         res.status(400).send("Error entering data into the db!");
       } else {
-        console.log(createdUser);
         res.status(200).send("Successfully entering into the db!");
 
         tokenSchema.create(
@@ -36,12 +34,8 @@ const signUp = async (req, res) => {
           },
           async (err, createdToken) => {
             if (err) {
-              console.log(err);
               res.status(400).send("Error entering data into the db!");
             } else {
-              console.log(createdToken);
-              // const url = `${process.env.CLIENT}user/${createdUser._id}/verify/${createdToken.token}`;
-              // console.log(url);
               res.status(200).send("Successfully entering into the db!");
             }
           }

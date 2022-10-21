@@ -5,24 +5,9 @@ import HomeView from "./Views/HomeView/HomeView";
 import Register from "./Components/Register/Register";
 import Login from "./Components/Login/Login";
 import Countdown from "./Components/Countdown/Countdown";
+import Registered from "./Components/Registered/Registered";
+import Verified from "./Components/Verified/Verified";
 
-// import Events from "./Components/Events/Events";
-// import AdminLoginView from "./Components/Views/AdminLoginView/AdminLoginView";
-
-// import HomeView from "./Components/Views/HomeView/HomeView.js";
-
-// import FriendsCode from "./Components/FriendsCode/FriendsCode.js";
-
-//This function will check whether a use is already logged in
-//so that they cannot login again and again
-// const CheckAuth = ({ children }) => {
-//   let isAuthenticated = false;
-//   if (localStorage.getItem("currentUser")) isAuthenticated = true;
-//   return isAuthenticated ? <Navigate to="/friendscode" /> : children;
-// };
-
-// //This function will check whther a user is logged in so that
-// //they can view the protected routes
 const RequireAuthHome = ({ children }) => {
   let isAuthenticated = false;
   if (localStorage.getItem("currentUser")) isAuthenticated = true;
@@ -39,9 +24,11 @@ const MyRoutes = () => {
   return (
     <Routes>
       <Route path="/register" element={<Register />} exact />
+      <Route path="/registered" element={<Registered />} exact />
+      <Route path="/verified" element={<Verified />} exact />
       <Route
         path="/"
-        element={<Countdown countdownTimestampMs={1667602800000} />}
+        element={<Countdown countdownTimestampMs={1668790800000} />}
         exact
       />
       <Route
